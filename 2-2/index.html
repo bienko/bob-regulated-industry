@@ -1,0 +1,1731 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Regulated Industry with IBM Bob">
+      
+      
+        <meta name="author" content="Christopher Bienko (cdbienko@us.ibm.com)">
+      
+      
+      
+        <link rel="prev" href="../2-1/">
+      
+      
+        <link rel="next" href="../3-1/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Running, Debugging, and Iterating - Regulated Industry with IBM Bob</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../styles/override-print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#running-debugging-and-iterating" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Regulated Industry with IBM Bob" class="md-header__button md-logo" aria-label="Regulated Industry with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Regulated Industry with IBM Bob
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Running, Debugging, and Iterating
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Regulated Industry with IBM Bob" class="md-nav__button md-logo" aria-label="Regulated Industry with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Regulated Industry with IBM Bob
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table of Contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registration and Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Analyze
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Analyze
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understanding the Core Banking Codebase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building the Carbon Teller Front-End
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running, Debugging, and Iterating
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running, Debugging, and Iterating
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-what-you-will-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. WHAT YOU WILL DO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. WHY THIS MATTERS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-starting-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. STARTING THE APPLICATION
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iii. STARTING THE APPLICATION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-the-development-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start the development server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-the-credentials-and-sign-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find the credentials and sign in
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-the-debug-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. THE DEBUG LOOP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iv. THE DEBUG LOOP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-login-error-and-the-plain-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix the login error and the plain design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart-the-server-and-test-the-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restart the server and test the fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolve-the-remaining-network-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolve the remaining network error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improve-the-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Improve the dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-empty-dashboard-counters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix the empty dashboard counters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v-completing-the-teller-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v. COMPLETING THE TELLER TASK
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v. COMPLETING THE TELLER TASK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#look-up-the-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Look up the balance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vi. KEY TAKEAWAYS
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Secure
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Secure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Analysis and Remediation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-what-you-will-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. WHAT YOU WILL DO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. WHY THIS MATTERS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-starting-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. STARTING THE APPLICATION
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iii. STARTING THE APPLICATION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-the-development-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start the development server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-the-credentials-and-sign-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find the credentials and sign in
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-the-debug-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. THE DEBUG LOOP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iv. THE DEBUG LOOP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-login-error-and-the-plain-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix the login error and the plain design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart-the-server-and-test-the-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restart the server and test the fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolve-the-remaining-network-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolve the remaining network error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improve-the-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Improve the dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-empty-dashboard-counters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix the empty dashboard counters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v-completing-the-teller-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v. COMPLETING THE TELLER TASK
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v. COMPLETING THE TELLER TASK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#look-up-the-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Look up the balance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vi. KEY TAKEAWAYS
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><p><strong>MODULE 2 | BUILD</strong></p>
+<h1 id="running-debugging-and-iterating"><strong>RUNNING, DEBUGGING, AND ITERATING</strong></h1>
+<hr>
+<h2 id="i-what-you-will-do"><strong>i. WHAT YOU WILL DO</strong></h2>
+<p></p><div class="video-container"><video style="position:relative;width:100%;height:22.172vw" controls="" alt="type:video"><source src="../_videos/Build%20-%20Running%2C%20Debugging%2C%20and%20Iterating%20%5BBob%20Regulated%20L3%5D.mp4" type="video/mp4"></video></div><p></p>
+<div class="admonition note">
+<p>Christopher Bienko <em>(AI Enablement GTM Product Manager)</em> provides an overview of the <em>Build - Running, Debugging, and Iterating</em> module for the hands-on enablement. <strong><a href="https://ibm.seismic.com/Link/Content/DCXTjVcJMbmXV87Dg8RdVJ7h66R8" target="_blank">[2 min]</a></strong></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">AI MATURITY CURVE</p>
+<p>Every fix in this chapter begins with evidence — a screenshot of the failing screen — and ends with your review of Bob's summary before the server restarts. Between those two points Bob works on its own. It diagnoses the problem and probes the backend with <code>curl</code>. It then edits the code and rebuilds. This is the discipline of the previous course applied to a live application. The investigation is delegated; the result is verified before it is trusted; the restart stays in your hands.</p>
+</div>
+<p>A generated application is a starting point rather than a finished product. This chapter closes the gap.</p>
+<p>You start the teller portal Bob built and sign in. You then resolve the issues that surface: a login that fails, a page that looks plainer than the specification asked for, and a dashboard whose counters read zero. The method is the same every time:</p>
+<ol>
+<li>Take a screenshot and describe the problem in a sentence.</li>
+<li>Review what Bob changes before you restart.</li>
+</ol>
+<p>The chapter closes with the module's teller task, retrieving the balance for a specific IBAN through the portal you built.</p>
+<hr>
+<h2 id="ii-why-this-matters"><strong>ii. WHY THIS MATTERS</strong></h2>
+<p>Generative AI produces a working application far faster than a team could write one. It also produces one with defects, because no specification can anticipate every runtime detail. A proxy behaves unexpectedly, a credential differs from what was assumed, or a token arrives late. The skill that matters in practice is the <strong>iteration loop</strong>, and it is a skill clients ask about directly: <em>how does a practitioner fix what the agent got wrong without becoming an expert in the generated code?</em></p>
+<p>The answer this chapter demonstrates requires no reading of the source. A screenshot supplies the visual context and a plain-language sentence supplies the intent. Bob investigates from there. It reads its own code and tests the backend, then applies a fix that it explains. In a <strong>regulated industry</strong> setting, that <em>explanation</em> matters as much as the <em>fix</em> itself: each iteration leaves a record of what was wrong and what changed.</p>
+<hr>
+<h2 id="iii-starting-the-application"><strong>iii. STARTING THE APPLICATION</strong></h2>
+<p>Bob's completion message from the previous chapter ends with the terminal commands needed to start the application. Your task for this module is to start the portal, sign in, and find the latest transactions for the client with IBAN <code>DE89545769475769453536</code>.</p>
+<hr>
+<h3 id="start-the-development-server"><strong>Start the development server</strong></h3>
+<ol>
+<li>
+<p>Scroll through Bob's final message until you find the terminal commands needed to start the front-end.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_54d705fa4ac244688dcaf4f441f3b3ff_9e633e1191784ccea9f54867d1037824_68ad257e1c2f496fa16719fbf132b208_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_54d705fa4ac244688dcaf4f441f3b3ff_9e633e1191784ccea9f54867d1037824_68ad257e1c2f496fa16719fbf132b208_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Click <strong>Terminal</strong> in the top menu bar to open the terminal panel in the IDE.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_f5a42325c25f42169fd9238d9b36bcaf_f472f97d43164c3bbb641d5c05ed6982_c6c52066794942669ffb794c148e0573_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_f5a42325c25f42169fd9238d9b36bcaf_f472f97d43164c3bbb641d5c05ed6982_c6c52066794942669ffb794c148e0573_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Click <strong>New Terminal</strong> to open a fresh terminal session in the project directory.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_300bd12bb01143a4bb3e2aff6e8464a7_8eddf2fd87d84d748fc747d262f486d9_5b54771e85394d81982a8a0755c8d40b_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_300bd12bb01143a4bb3e2aff6e8464a7_8eddf2fd87d84d748fc747d262f486d9_5b54771e85394d81982a8a0755c8d40b_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Paste and execute the first terminal command Bob provided, for example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>gfm-teller-app
+</code></pre></div>
+<p>Your exact commands may differ depending on how Bob named the project directory.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_d879f4c4983b4bac94dc04b838122700_98707f213a5d41a390301e81bfeeb34c_29474dde27dc487d908b1a7d8a5277bb_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_d879f4c4983b4bac94dc04b838122700_98707f213a5d41a390301e81bfeeb34c_29474dde27dc487d908b1a7d8a5277bb_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Paste and execute the next command Bob provided, typically the dependency install:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm<span class="w"> </span>install
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_7df418a2f21f4493a6efd80497aa8e77_2744170e8f86411ea98a8abe2bb2699f_de3420506702435b9330d1a501b53e02_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_7df418a2f21f4493a6efd80497aa8e77_2744170e8f86411ea98a8abe2bb2699f_de3420506702435b9330d1a501b53e02_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Paste and execute the final startup command Bob provided, typically:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>npm<span class="w"> </span>start
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_bea7e0fa672d4c4c92db198129a1b8f4_8051a884e4794a928e576ae7f2cf0fab_05026a27e39b4399907b02334d754e4e_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_bea7e0fa672d4c4c92db198129a1b8f4_8051a884e4794a928e576ae7f2cf0fab_05026a27e39b4399907b02334d754e4e_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Review the output for the URL where your application is running. In most cases this is <code>localhost:3000</code>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_f101a34a0443409db25c57cac7c2dad0_e308214066d04fffb3c8d63f670f703c_2043ef65b64e45348007c4307c8af307_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_f101a34a0443409db25c57cac7c2dad0_e308214066d04fffb3c8d63f670f703c_2043ef65b64e45348007c4307c8af307_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Navigate to the URL in your browser. The page may display a blank white screen for one to two minutes while the React application compiles and loads. This is normal; wait for it to finish before advancing along the lab steps.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_17270759c4bb453ab619a5cb20085d74_5a18f06a01bd4978a76ceeba47a26496_85a9071ce2784855932a959ac996ccc3_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_17270759c4bb453ab619a5cb20085d74_5a18f06a01bd4978a76ceeba47a26496_85a9071ce2784855932a959ac996ccc3_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="find-the-credentials-and-sign-in"><strong>Find the credentials and sign in</strong></h3>
+<ol start="9">
+<li>
+<p>The <strong>GFM Bank — Teller Portal</strong> login screen appears and asks for credentials. Return to the Bob chat panel to find out where they are stored.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_e85c6706324e4a7ebf279c82ae20061a_14d126667e2f4522b9c743dd60eb5389_8d34049116fc477f8af05015b46622b7_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_e85c6706324e4a7ebf279c82ae20061a_14d126667e2f4522b9c743dd60eb5389_8d34049116fc477f8af05015b46622b7_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Review Bob's completion message and look for a line mentioning login credentials. Bob may paste them directly in the chat or, as in this case, indicate that they are stored in an <code>.env</code> file in the project directory.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_cd1a5aa6e6824d989641a16e3c5ce0a0_839e22b4e39149c6b3f021dfb3283794_7797b45acf9e4f81b7fecf54bedd8dff_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_cd1a5aa6e6824d989641a16e3c5ce0a0_839e22b4e39149c6b3f021dfb3283794_7797b45acf9e4f81b7fecf54bedd8dff_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Navigate to <code>gfm-teller-app/.env</code> in the file explorer sidebar.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_7c494edfc981409599600355c711e467_093e4838fb6748c9817266b1c2079a3c_335fd2594f3e45fb8c3aaf8e0fbc0f93_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_7c494edfc981409599600355c711e467_093e4838fb6748c9817266b1c2079a3c_335fd2594f3e45fb8c3aaf8e0fbc0f93_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Open <code>.env</code>. It contains the <code>REACT_APP_TELLER_USERNAME</code> and <code>REACT_APP_TELLER_PASSWORD</code> values Bob configured during the build; these are the credentials for the application.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_a2a30996fd0749879c53388cfb94cd09_17b40f80678344cba51d6c9112d3e32d_d169423a2528405d8d77b5ae75c1c230_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_a2a30996fd0749879c53388cfb94cd09_17b40f80678344cba51d6c9112d3e32d_d169423a2528405d8d77b5ae75c1c230_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Enter the username and password from <code>.env</code> into the login form and click <strong>Sign in</strong>. If you cannot locate the credentials, review Bob's output or check <code>.env</code>. You can also simply ask Bob for them.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_e6cdae9197a64c1eba1ff0e8ac2d31f0_06e0e20fbb144b0bbc9e73c095ccd83f_1866e7dba1f74249bb383f9d13859da0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_e6cdae9197a64c1eba1ff0e8ac2d31f0_06e0e20fbb144b0bbc9e73c095ccd83f_1866e7dba1f74249bb383f9d13859da0_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<details class="warning">
+<summary>YOUR APPLICATION MAY LOOK DIFFERENT</summary>
+<p>Because Bob is generative, your portal may look quite different from the screenshots in this chapter. The following examples show alternative renderings of the login page, the dashboard, and the balance inquiry page from other runs of the same specification.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-09-03/b87157d8-a001-4f73-8a0d-858df047b224/screenshot_f69d2baeb9b24f6ca9c3e7654acc4351_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-09-03/b87157d8-a001-4f73-8a0d-858df047b224/screenshot_f69d2baeb9b24f6ca9c3e7654acc4351_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-09-03/361b4a17-356c-4165-bf9c-3bc35357a75f/screenshot_67138754352c42bf92a75522ad7751cd_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-09-03/361b4a17-356c-4165-bf9c-3bc35357a75f/screenshot_67138754352c42bf92a75522ad7751cd_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-09-03/a3bff572-56cd-4b01-9d10-f24650a3654d/screenshot_fd3a1eb059c54680838f428a78527be4_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-09-03/a3bff572-56cd-4b01-9d10-f24650a3654d/screenshot_fd3a1eb059c54680838f428a78527be4_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-09-03/ff920909-16e9-4325-8b93-d2ffbf0002db/screenshot_8ce5e34389bc4cabad36e37d54a96c90_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-09-03/ff920909-16e9-4325-8b93-d2ffbf0002db/screenshot_8ce5e34389bc4cabad36e37d54a96c90_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-09-03/95d90727-2f0c-4ab0-b7c8-4c7a6905074a/screenshot_50b36f26d25e4f14a2d79a5fd5035b98_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-09-03/95d90727-2f0c-4ab0-b7c8-4c7a6905074a/screenshot_50b36f26d25e4f14a2d79a5fd5035b98_text_export.jpeg" alt="" width="600"></a>
+</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-09-03/ae61cf3b-b4ab-4b7c-9da5-a3fedae069b9/screenshot_013c7b22cb8b425aad53f3d42b01a950_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-09-03/ae61cf3b-b4ab-4b7c-9da5-a3fedae069b9/screenshot_013c7b22cb8b425aad53f3d42b01a950_text_export.jpeg" alt="" width="600"></a>
+</p>
+</details>
+<hr>
+<h2 id="iv-the-debug-loop"><strong>iv. THE DEBUG LOOP</strong></h2>
+<p>In the run captured here, two issues appear at once: the login attempt fails with a network error, and the login page looks plain despite the specification's instruction to use Carbon components. Both get fixed, starting with the login. You may or may not experience these issues; if your portal works, skip ahead to the next section.</p>
+<hr>
+<h3 id="fix-the-login-error-and-the-plain-design"><strong>Fix the login error and the plain design</strong></h3>
+<ol>
+<li>
+<p>When you encounter an error or want a UI improvement, the process is always the same.</p>
+<ul>
+<li><strong>Take a screenshot of the problem</strong> and paste it into Bob's Agentic Sidebar chat, then hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute.</li>
+<li>Be sure to describe the issue in natural, plain language (as if you were describing the problem to a colleague.)</li>
+<li>Start by taking a screenshot of the entire page <strong>showing the login error</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_fd70bac8791f4f22bec686836c1300a6_d518c08d7c444571bdeb9f73dd68f7dc_213f02ce94ae4d13830d6b0288d62686_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_fd70bac8791f4f22bec686836c1300a6_d518c08d7c444571bdeb9f73dd68f7dc_213f02ce94ae4d13830d6b0288d62686_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The screenshot captures both the network error and the plain design.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_fafe180bcb914f83a69b9cd3443995da_fce2044f7264422ea06bc695ba228d05_f323db894df449ec8ee9894ce3d85619_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_fafe180bcb914f83a69b9cd3443995da_fce2044f7264422ea06bc695ba228d05_f323db894df449ec8ee9894ce3d85619_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Paste the screenshot directly into the Bob chat input so that Bob has visual context for what is going wrong.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_a5e77b4592914e87a29b64cf7f4ebd46_5a34dd5948c240199a12412b3da0f008_c7b5801791874bd9bf8b0b01257bacbe_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_a5e77b4592914e87a29b64cf7f4ebd46_5a34dd5948c240199a12412b3da0f008_c7b5801791874bd9bf8b0b01257bacbe_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Alongside the screenshot, describe the issue in plain language — for example: <em>"The login is failing with a network error, and the page design looks plain. Please fix both."</em> No knowledge of the root cause is required; Bob reads the code, investigates, and resolves the issue on its own.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_2fc66de728e84422893084e4fd51e95b_4d26bba6011842578c4b9743a118c7c0_ae56d1516f8f4c53b1e9b3f18e3b4abc_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_2fc66de728e84422893084e4fd51e95b_4d26bba6011842578c4b9743a118c7c0_ae56d1516f8f4c53b1e9b3f18e3b4abc_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob has already diagnosed the root cause.</p>
+<ul>
+<li>The network error is a CORS issue: the <code>login</code> function calls the backend with the absolute <code>BASE_URL</code> through a bare <code>axios.post</code>, bypassing the dev-server proxy entirely. Bob requests permission to run a <code>curl -s -X POST</code> command against the backend to verify the actual API response.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_b70ea76b01964a4e91e01b3380cf7c0c_5a326b3a5d97447abf0656633a61e60a_a8e65ef0302b476fadec86317dfeddd9_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_b70ea76b01964a4e91e01b3380cf7c0c_5a326b3a5d97447abf0656633a61e60a_a8e65ef0302b476fadec86317dfeddd9_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The first <code>curl</code> command has run.</p>
+<ul>
+<li>Bob now requests permission to run a second <code>curl -si -X POST</code> against the backend's <code>/token</code> endpoint with a different <code>Authorization</code> header, probing for the correct credentials. </li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_ce3a4688deaf4441927faad557e8493f_d69a57c4851949d8861e46a0dfef1b4f_b8da8e878f0b4523a5592c0fd08049d4_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_ce3a4688deaf4441927faad557e8493f_d69a57c4851949d8861e46a0dfef1b4f_b8da8e878f0b4523a5592c0fd08049d4_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The <code>curl</code> test confirmed that <code>teller1/password1</code> returns <code>Bad credentials</code> from the backend.</p>
+<ul>
+<li>Bob requests permission to run another <code>curl -si</code> against <code>/token</code> with a different header to discover the correct credentials.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_72f8ec74a26847d7a222646b1e7a2631_c08a5dd56edc473dbe63100375d19f9b_fbac0c1cbe3541ec83c31d3c5059adac_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_72f8ec74a26847d7a222646b1e7a2631_c08a5dd56edc473dbe63100375d19f9b_fbac0c1cbe3541ec83c31d3c5059adac_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob requests permission for one further <code>curl -s -X POST</code> against the <code>/token</code> endpoint. Click <strong>Approve for task</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_49295e2883904961b9a341f2697fbbc6_17804a44e86049b49d54ef2e2c1f68e3_a0bc7fcae92b4192839d44e8fdd5ccee_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_49295e2883904961b9a341f2697fbbc6_17804a44e86049b49d54ef2e2c1f68e3_a0bc7fcae92b4192839d44e8fdd5ccee_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob has confirmed that the real credentials are <code>teller</code> / <code>teller123</code>.</p>
+<ul>
+<li>It outlines a two-part fix: switch to relative URLs and update <code>.env</code>, then redesign the login header.</li>
+<li>It updates <code>.env</code> with the correct credentials and begins reading <code>LoginPage.js</code> for the redesign.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_ef5e6ffe08f248e084bcef42df4bba9a_c7763dffeed44bab9a54c0aea1944bff_33f316c2f71542d19dae608bf11c800b_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_ef5e6ffe08f248e084bcef42df4bba9a_c7763dffeed44bab9a54c0aea1944bff_33f316c2f71542d19dae608bf11c800b_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob has rewritten <code>LoginPage.js</code> with a Carbon-styled header and applied the matching SCSS changes.</p>
+<ul>
+<li>It requests permission to run <code>cd gfm-teller-app &amp;&amp; npx react-scripts build 2&gt;&amp;1</code> to confirm that the updated application compiles cleanly.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_86ca89842b5c49fdb40551b497e1d43c_08c53189ecb348f99ff2b5f357bd9711_9e72a6576dac48ee8d1f6605f8546d51_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_86ca89842b5c49fdb40551b497e1d43c_08c53189ecb348f99ff2b5f357bd9711_9e72a6576dac48ee8d1f6605f8546d51_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The fix is complete.</p>
+<ul>
+<li>Bob's message confirms the new credentials to use: username <code>teller</code> and password <code>teller123</code>.</li>
+<li><strong>A server restart</strong> is required for the changes to take effect.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_dd51b3a1e7324c10bafe1358efd36213_113c5732665948bbb8909c5d9a429f29_74f3a6afd8194ee490946887aa3d3efa_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_dd51b3a1e7324c10bafe1358efd36213_113c5732665948bbb8909c5d9a429f29_74f3a6afd8194ee490946887aa3d3efa_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="restart-the-server-and-test-the-fix"><strong>Restart the server and test the fix</strong></h3>
+<ol start="12">
+<li>
+<p>Click <strong>Terminal</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_e84a2b7bc71a43a78b587f74ab1cc451_a3fd87110d34421ab49625442a73b606_0e17748df7944cf2850fe6b3839f8178_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_e84a2b7bc71a43a78b587f74ab1cc451_a3fd87110d34421ab49625442a73b606_0e17748df7944cf2850fe6b3839f8178_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Click <strong>New Terminal</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_45ea33aac7dd47148f835ed8de33284c_3cac19c76e2f461086bc0225ea1a3c4b_683f22a714344118b9bd0929ff0ac3ce_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_45ea33aac7dd47148f835ed8de33284c_3cac19c76e2f461086bc0225ea1a3c4b_683f22a714344118b9bd0929ff0ac3ce_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>In the terminal sidebar list, find the previously opened terminal labelled <strong>node</strong> — the terminal where the app is running — and click it to switch to that session. If you closed that terminal, simply run the same startup commands again.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_799216bfc933401bbc037f2d26c46eaf_a29be50ebbf1493fb17da6596211bf8f_4bd56b9bdf7b4da4a384436c1bb540d1_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_799216bfc933401bbc037f2d26c46eaf_a29be50ebbf1493fb17da6596211bf8f_4bd56b9bdf7b4da4a384436c1bb540d1_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Identify the terminal where the application process is currently running; it shows active output from <code>npm start</code> or <code>node</code>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-20/eb8ef90d-a3e2-4e3b-8f60-b423c5ca35a4/user_cropped_screenshot_489221573eb840438c7be5d8ffd6497a_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-20/eb8ef90d-a3e2-4e3b-8f60-b423c5ca35a4/user_cropped_screenshot_489221573eb840438c7be5d8ffd6497a_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> in the running terminal to stop the development server. The prompt returns and accepts input again.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-20/e640e282-75c1-43dd-83cc-8aefc7a7fc7e/user_cropped_screenshot_1f8ebe85a1d54b53989385357bffe052_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-20/e640e282-75c1-43dd-83cc-8aefc7a7fc7e/user_cropped_screenshot_1f8ebe85a1d54b53989385357bffe052_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Type <code>npm start</code> (or the startup command Bob originally provided) and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to restart the application with the credential changes applied.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-20/c908383e-4d29-442d-a904-f247c49e0ade/user_cropped_screenshot_5f7bd30cc6a64b638882c877903b0d22_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/2026-08-20/c908383e-4d29-442d-a904-f247c49e0ade/user_cropped_screenshot_5f7bd30cc6a64b638882c877903b0d22_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Return to your browser and refresh the app URL. The page will remain on a white loading screen for a minute or more while the React build recompiles, which is expected.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_dcb14b1c7b4d452784c009921d7264b2_8531fd08a8c74e91b6149a9c60e9e018_b87f1e5605bd4c7683f1cf50fe94abb8_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_dcb14b1c7b4d452784c009921d7264b2_8531fd08a8c74e91b6149a9c60e9e018_b87f1e5605bd4c7683f1cf50fe94abb8_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The app loads.</p>
+<div class="admonition warning">
+<p class="admonition-title">A BROWSER WARNING YOU CAN DISMISS</p>
+<p>Some browsers warn that the password has appeared in a known data breach. This is expected, because the lab uses the simple demo credentials <code>teller</code> and <code>teller123</code>. The application runs locally and holds no real sensitive data. Close the warning and proceed.</p>
+</div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_d6f91fd9c5f44962b9b6a48e310983da_f9f78d3044fc48c5aefa8aa9ee061774_3245563398d8448d900ca1dc101d64fb_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_d6f91fd9c5f44962b9b6a48e310983da_f9f78d3044fc48c5aefa8aa9ee061774_3245563398d8448d900ca1dc101d64fb_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The login page design has been improved by Bob's fix: the Carbon components are styled correctly and the page now looks the part.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_2fef95613b7c452dbdaca1096fc65d1d_1676926338b5445299717a086aa7b701_c70a16b7ed9546bea6c295909758a186_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_2fef95613b7c452dbdaca1096fc65d1d_1676926338b5445299717a086aa7b701_c70a16b7ed9546bea6c295909758a186_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Enter the new credentials (<code>teller</code> / <code>teller123</code>) and click <strong>Sign in</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_42d2572579ff4126bd0ad8ca055350ba_340962bed03d41698d054fb446ae7f28_80faa2b16fe14f58b60fd909764fb147_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_42d2572579ff4126bd0ad8ca055350ba_340962bed03d41698d054fb446ae7f28_80faa2b16fe14f58b60fd909764fb147_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The design is fixed, but a network error still appears on sign-in. This needs a separate investigation.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_ca91f3e966d34bc3b59de3c0d3b2552d_5c7a2648878044b087b6814ebb5eaa5e_e2c1e60a23124d43a801973f44d6a366_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_ca91f3e966d34bc3b59de3c0d3b2552d_5c7a2648878044b087b6814ebb5eaa5e_e2c1e60a23124d43a801973f44d6a366_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="resolve-the-remaining-network-error"><strong>Resolve the remaining network error</strong></h3>
+<ol start="23">
+<li>
+<p>Take a screenshot of the page showing the network error, following the same process as before.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_0a651d765d06499ba87b30e0f7df409d_68283c2eae6e45d1ae4e34d83e035ee8_02f9f6f047564a718df6663114b1f3fd_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_0a651d765d06499ba87b30e0f7df409d_68283c2eae6e45d1ae4e34d83e035ee8_02f9f6f047564a718df6663114b1f3fd_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Paste the screenshot into the Bob chat alongside a brief description of the problem, then hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_47a4b67fa59e43eeaecc3e108be4af94_46583dfeb07a47eb9acb83c3ad5adf7b_7e8b0d4fab2b4447831fc1c85da4ae2d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_47a4b67fa59e43eeaecc3e108be4af94_46583dfeb07a47eb9acb83c3ad5adf7b_7e8b0d4fab2b4447831fc1c85da4ae2d_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob investigates the network error, reading the API service files and environment configuration to find the root cause.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_c375cb9bfd8142489ca0626ab50b444d_60dea8869a40484eab19d1c1197e9ad1_6894efa21ad740309339c90923168a32_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_c375cb9bfd8142489ca0626ab50b444d_60dea8869a40484eab19d1c1197e9ad1_6894efa21ad740309339c90923168a32_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob discovers that its previous fix to <code>api.js</code> was not persisted: the <code>login()</code> function still calls <code>axios.post(${BASE_URL}/token, ...)</code> directly, bypassing the dev-server proxy.</p>
+<ul>
+<li>Bob has rewritten <code>gfm-teller-app/src/services/api.js</code> with a complete fix and requests permission to run <code>cd gfm-teller-app &amp;&amp; npx react-scripts build</code> to confirm that the build still passes.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_4bba18749be54a88a984ba794f1be5f8_be8e5568a7e644b08065b600dc3566b6_5e91ceb3c3314236a253e0e1e5cd83fc_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_4bba18749be54a88a984ba794f1be5f8_be8e5568a7e644b08065b600dc3566b6_5e91ceb3c3314236a253e0e1e5cd83fc_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob requests permission to run <code>cd gfm-teller-app &amp;&amp; findstr /n "BASE_URL"</code> to scan <code>api.js</code> for any remaining absolute <code>BASE_URL</code> references, confirming that the rewrite removed every direct backend call that bypassed the proxy. Click <strong>Approve for task</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_d65aa57c23df428aabcc7ec394f833e3_28d840d931f141d9840c9273e85a6ab1_5165f76d29ac4d6e8340527ce8b6e2c8_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_d65aa57c23df428aabcc7ec394f833e3_28d840d931f141d9840c9273e85a6ab1_5165f76d29ac4d6e8340527ce8b6e2c8_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob confirms that the fix is complete. Review its summary to understand what changed.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_3478fd2f7405446197a11cb30f1060c0_f14496404f934a17a0b94c43c542867d_79d33963bd1a4e639205dedad02bac50_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_3478fd2f7405446197a11cb30f1060c0_f14496404f934a17a0b94c43c542867d_79d33963bd1a4e639205dedad02bac50_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Another restart is required to apply this fix.</p>
+<ul>
+<li>Depending on the nature of a fix, a restart may not be needed (sometimes a page refresh is enough), so review Bob's instructions each time.</li>
+<li>As before, press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> in the running terminal to stop the application.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_f7b59343f4bb406bb176f2edef3e1a19_4856adab2d4f42f6ab35e764bfa4ac46_8bdf0d71de8642bf89dda6a28a9401f3_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_f7b59343f4bb406bb176f2edef3e1a19_4856adab2d4f42f6ab35e764bfa4ac46_8bdf0d71de8642bf89dda6a28a9401f3_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Type <code>npm start</code> and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to restart the application.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_993260344085408f9546d22e49937d2e_a2234370b2f441aa8bdba4a1cebd48c6_d994ce2a72b1468d972b0029bf2c8e77_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_993260344085408f9546d22e49937d2e_a2234370b2f441aa8bdba4a1cebd48c6_d994ce2a72b1468d972b0029bf2c8e77_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Enter the credentials and click <strong>Sign in</strong> again to test whether the network error is resolved.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_66836e49964f4fedb7100648edd0dd0d_44e6458ce5ec4bd1900bdaa3601ee888_684b9573dda949df9863fe7248929c86_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_66836e49964f4fedb7100648edd0dd0d_44e6458ce5ec4bd1900bdaa3601ee888_684b9573dda949df9863fe7248929c86_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Sign-in succeeds and you reach the main dashboard. Two further issues are visible, however. The dashboard design still needs work. The Accounts counter reads zero, and so do the Customers and Balances counters.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_8563c364b32d48d59e586333907291f0_7bf3ae1abe2a4c7e8fec44c773cac01d_57e2e4bee62641088aa6f852c2c9d0ee_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_8563c364b32d48d59e586333907291f0_7bf3ae1abe2a4c7e8fec44c773cac01d_57e2e4bee62641088aa6f852c2c9d0ee_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="improve-the-dashboard"><strong>Improve the dashboard</strong></h3>
+<ol start="33">
+<li>
+<p>As before, take a screenshot of the dashboard showing the design you want Bob to improve.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_02e0ced40ad04062b0ee7adab5241961_294acb8b4a274bd1a2e8a43c9c4d3415_d99f81bc82b141e0ad068b0d5413223d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_02e0ced40ad04062b0ee7adab5241961_294acb8b4a274bd1a2e8a43c9c4d3415_d99f81bc82b141e0ad068b0d5413223d_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Paste the screenshot and type a plain-language prompt into the chat input.</p>
+<ul>
+<li>For example: <em>"Great, I can sign in now! Finally, lets add some nicer aesthetics to the teller portal, like you did for the login page."</em></li>
+<li>When ready, hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_badebe657d48456392dae3744b7722c0_5b8dd0488a844bdbaa3032d0156672d0_e39eb5a0c31543fdb641d8f7b5fdd09a_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_badebe657d48456392dae3744b7722c0_5b8dd0488a844bdbaa3032d0156672d0_e39eb5a0c31543fdb641d8f7b5fdd09a_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob responds with a plan for the visual uplift that sets out six goals, and then begins working. The goals cover the header and the side navigation. They also cover the page header and the metric tiles, followed by the quick-action tiles and the global spacing.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_7c9dbbd8c2f248759dce16e31d0f6b5f_8be0ae39f34e4a6b8f1d5fcc354f2cb3_f553bd6c43fb4913b0db85eb74f9d47c_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_7c9dbbd8c2f248759dce16e31d0f6b5f_8be0ae39f34e4a6b8f1d5fcc354f2cb3_f553bd6c43fb4913b0db85eb74f9d47c_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob begins the visual improvements. Watch the terminal panel as the dev server at <code>localhost:3000</code> automatically recompiles with the updated styles.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_87a9e7d3220e4610a5b329d4629969b6_24d6bedf912c407d98b61b359e69eb61_bb5f70e3199f4542901bf688a419c6b1_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_87a9e7d3220e4610a5b329d4629969b6_24d6bedf912c407d98b61b359e69eb61_bb5f70e3199f4542901bf688a419c6b1_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob has verified the auth token flow and read <code>index.scss</code> to plan the uplift.</p>
+<ul>
+<li>Bob requests permission to run a <code>type</code> command to read a temporary file as part of its CSS planning.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_b85844faa75547929bccf6d9ef369711_0e65643540934dd58cf9faf449f653c6_cc47d41b1c134437b5e009b59de41ea0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_b85844faa75547929bccf6d9ef369711_0e65643540934dd58cf9faf449f653c6_cc47d41b1c134437b5e009b59de41ea0_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob has confirmed that the <code>"teller"</code> token is a bare string accepted as Bearer auth and has read the current <code>index.scss</code>.</p>
+<ul>
+<li>Bob requests permission to run another <code>curl -s</code> against the backend to verify the token handling further before applying the visual changes.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_cefcc1489df64df3b3baac057c212aa5_15e1734d51cb45f2ba0ec849cc6ed8a7_0d1bd7ce730e473d909728b73f8ae003_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_cefcc1489df64df3b3baac057c212aa5_15e1734d51cb45f2ba0ec849cc6ed8a7_0d1bd7ce730e473d909728b73f8ae003_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Click <strong>Approve</strong> to allow Bob to proceed with the next change.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_697315d5fc704abd8b2827f81b71bc69_e64a2a08cfbb4b07ac41527c3ed083f5_a94cf521101d402aaa78d07cf0fc3c9e_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_697315d5fc704abd8b2827f81b71bc69_e64a2a08cfbb4b07ac41527c3ed083f5_a94cf521101d402aaa78d07cf0fc3c9e_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob confirms that the API works with <code>Bearer teller</code> and that the "Forbidden" errors are a token-timing issue: the dashboard loads before the token propagates. It notes this as minor and continues planning before starting the visual work.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_34fb9ba1d16a4ff19975bb0138ce0b34_38c995d7b5fd4e1cb395adf3ad6c2943_7286066a69de46bdb3c0dcc04d823bb5_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_34fb9ba1d16a4ff19975bb0138ce0b34_38c995d7b5fd4e1cb395adf3ad6c2943_7286066a69de46bdb3c0dcc04d823bb5_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob works through the remaining component updates.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_937852bdf528407da01775fa5927db0a_21b4b5cdbce3445fba04da1ed0029e4b_7e46ae269b6b403db65a8af620f89034_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_937852bdf528407da01775fa5927db0a_21b4b5cdbce3445fba04da1ed0029e4b_7e46ae269b6b403db65a8af620f89034_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob has written the updated <code>index.scss</code>, <code>AppShell.js</code>, and <code>DashboardPage.js</code> with the full visual uplift. That covers a branded header and richer metric tiles.</p>
+<ul>
+<li>Bob also adds quick-action cards and a token-timing fix.</li>
+<li>It requests permission to run a Node.js command that verifies the new Carbon icons exist before triggering the build.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_21f6bc60c6544b02b142e4b8b24e440d_dfbe3f824a8d4b09952a26b3d28a2a5c_a43bc7e103614d348d96145c95a25cd2_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_21f6bc60c6544b02b142e4b8b24e440d_dfbe3f824a8d4b09952a26b3d28a2a5c_a43bc7e103614d348d96145c95a25cd2_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob has confirmed that all three required Carbon icons exist and requests permission to run <code>cd gfm-teller-app &amp;&amp; npx react-scripts build</code> with a 300-second timeout to produce the final build with the visual changes applied. Click <strong>Approve for task</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_b69e6730ecbf486f85cb13fd84690b35_3c62b47cff46498eac25fb02c05475fe_6cde7f80889043399602240f6bdb6148_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_b69e6730ecbf486f85cb13fd84690b35_3c62b47cff46498eac25fb02c05475fe_6cde7f80889043399602240f6bdb6148_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob's task is complete. The chat panel summarizes every change applied. There are quick-action tiles and section headings, along with a header carrying the <code>BankMark</code> SVG. The "Forbidden" fix in <code>DashboardPage.js</code> is listed as well. The dev server has already recompiled.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_13102b9a3a334161b8e36d221f0cdf79_ef4a19ee39554bfa813065e00ea11f13_1f5f0ffdb76047128957b3a8b4a75a4e_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_13102b9a3a334161b8e36d221f0cdf79_ef4a19ee39554bfa813065e00ea11f13_1f5f0ffdb76047128957b3a8b4a75a4e_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Return to your browser, reload the app URL, and sign in again to see the updated design.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_1f09f8581a7844a391d9a3bf7fc84945_e46c023e4c3e4c0c80a3bcd1359ff1e2_fccd52c4cda7451c956acf28e43e525f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_1f09f8581a7844a391d9a3bf7fc84945_e46c023e4c3e4c0c80a3bcd1359ff1e2_fccd52c4cda7451c956acf28e43e525f_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="fix-the-empty-dashboard-counters"><strong>Fix the empty dashboard counters</strong></h3>
+<ol start="46">
+<li>
+<p>Before the module's final task, address the remaining issue: the Accounts counter reads zero, and so do the Customers and Combined Balances counters.</p>
+<ul>
+<li>A <strong>"Dashboard load failed — Forbidden"</strong> toast is also visible in the top-right corner.</li>
+<li>The dashboard is not fetching its summary data from the backend correctly.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_fc01cc99ee3d40b298828f800d86e1de_92f7f20577b345dd8d69549c38848e46_3f512f406b5740e899f3a12c87ea3465_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_fc01cc99ee3d40b298828f800d86e1de_92f7f20577b345dd8d69549c38848e46_3f512f406b5740e899f3a12c87ea3465_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>As before, write a prompt describing the issue and attach a screenshot for context. Then hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_c84e50842a4d4117bb6fff888602019e_1e55b325d2804e7087974e78d726531c_93e7dd031b7b47d4a9e49722d1bec34f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_c84e50842a4d4117bb6fff888602019e_1e55b325d2804e7087974e78d726531c_93e7dd031b7b47d4a9e49722d1bec34f_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob identifies the zeros as an API response-shape mismatch and requests permission to run a <code>curl -s</code> command against the backend to determine the exact response structure before writing any fix. Click <strong>Approve for task</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_2a7898a956d94a2d91959708274b207b_e7dfef1365934941bfa2e4b8a697000c_1af215b309374864b13ae3f9f4f3e20d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_2a7898a956d94a2d91959708274b207b_e7dfef1365934941bfa2e4b8a697000c_1af215b309374864b13ae3f9f4f3e20d_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Tick <strong>I understand the risk</strong> and click <strong>Approve</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_6c37952fdfbd4a75b581f93dec2078ed_2ce0ec0e5e944171973b380d14f74818_cb289664ed3c4c71a244a59f561d3b57_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_6c37952fdfbd4a75b581f93dec2078ed_2ce0ec0e5e944171973b380d14f74818_cb289664ed3c4c71a244a59f561d3b57_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Click <strong>Approve</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_fc6744e5735f40469bcfad8ecae8dc12_116019340d2443089d30c4d4ebef4746_1d1b3c81417546ae92042b5d3502d799_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_fc6744e5735f40469bcfad8ecae8dc12_116019340d2443089d30c4d4ebef4746_1d1b3c81417546ae92042b5d3502d799_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob identifies three targeted fixes needed to resolve the zero-balance issue. Watch the Agentic Sidebar as it applies each one.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_6eaf63eeff704a84a3d6d597ea37a773_1cacab7f457d4a48b22f2b72e5735729_283be78b41334d1385252a118ff5e48f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_6eaf63eeff704a84a3d6d597ea37a773_1cacab7f457d4a48b22f2b72e5735729_283be78b41334d1385252a118ff5e48f_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob has applied the fixes to <code>TransactionsPage.js</code>, <code>AccountsPage.js</code>, and <code>BalancesInquiryPage.js</code>.</p>
+<ul>
+<li>Bob adds token guards and makes the <code>listCustomers</code> API call fault-tolerant.</li>
+<li>It also requests requests permission to run <code>cd gfm-teller-app &amp;&amp; npx react-scripts build</code> to confirm that everything compiles with all three in place.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_72533c5d3747483585a1b6735c9606a6_cbf6f5998da94f71bbb197578c3603a3_c95bffc6f84d473f94e4d8b14c255add_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_72533c5d3747483585a1b6735c9606a6_cbf6f5998da94f71bbb197578c3603a3_c95bffc6f84d473f94e4d8b14c255add_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob finishes all three fixes. Review the completion message to understand what changed before restarting the app.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_13240d7d81274feb91bce7cd91823998_473d429d2171419aa0fc96fb4d36e246_b9dedda09396403398001916e14ce64d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_13240d7d81274feb91bce7cd91823998_473d429d2171419aa0fc96fb4d36e246_b9dedda09396403398001916e14ce64d_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> in the terminal to stop the running application.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_bfb0e2630f8d498c92ce1bfaac34def0_6ee9d0b09aff4ea49b71b0e054d79b0b_2806e767e5254b22aff80cfd903dd1c5_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_bfb0e2630f8d498c92ce1bfaac34def0_6ee9d0b09aff4ea49b71b0e054d79b0b_2806e767e5254b22aff80cfd903dd1c5_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Run <code>npm start</code> to restart the application with the fixes applied.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_441194f8254c4528ac734048bf1a5cf8_b41f7d19fbd0496bb9b870aa844290a8_73e32be7c7f54dc6bfa9331133fe3e92_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_441194f8254c4528ac734048bf1a5cf8_b41f7d19fbd0496bb9b870aa844290a8_73e32be7c7f54dc6bfa9331133fe3e92_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Return to your browser and sign in again. Your app may look different from the screenshots depending on what Bob generated, and your credentials may differ as well.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_45bb630d792849e1a030faeb71921bc3_669ad178636047adbef479d431360ba5_c7ddf8a6233c4b99aceff5d0fa0c03f4_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_45bb630d792849e1a030faeb71921bc3_669ad178636047adbef479d431360ba5_c7ddf8a6233c4b99aceff5d0fa0c03f4_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The Total Accounts counter now shows 1,000, confirming that the fix worked. Customers and Combined Balances still read zero, which can be revisited later; the portion needed for the module's task is working, so the lab moves forward.</p>
+<div class="admonition tip">
+<p class="admonition-title">FOR CLIENT ENGAGEMENTS</p>
+<p>When a demonstration needs every rough edge removed, continue iterating through the same loop — screenshot and plain-language prompt to the Agentic Sidebar — until the remaining counters populate. Module 3 closes with one more example of exactly this.</p>
+</div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_7b28a8ab7294485baa6c05b33f4f2805_7f048f01478b4dce84be1179281c77ac_e574fa127b1444cfa35573f3ba34c268_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_7b28a8ab7294485baa6c05b33f4f2805_7f048f01478b4dce84be1179281c77ac_e574fa127b1444cfa35573f3ba34c268_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h2 id="v-completing-the-teller-task"><strong>v. COMPLETING THE TELLER TASK</strong></h2>
+<p>The front-end is running and you are signed in. What remains is the task set at the start of the module: find the latest transactions for the client with IBAN <code>DE89545769475769453536</code>.</p>
+<hr>
+<h3 id="look-up-the-balance"><strong>Look up the balance</strong></h3>
+<ol>
+<li>
+<p>Click <strong>Balance Inquiry</strong> in the navigation menu to open the IBAN lookup form.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_1dce4f488b894a13922641df939f9b37_ff41078e6fd64bd69b57380e641af5cf_9e1c5d64c81145c99ad1d184a3468ab5_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_1dce4f488b894a13922641df939f9b37_ff41078e6fd64bd69b57380e641af5cf_9e1c5d64c81145c99ad1d184a3468ab5_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>On the Balance Inquiry page, enter the following IBAN into the input field and click <strong>Check Balance</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>DE89545769475769453536
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_a99a051c99594f0a894cd857ebf8e3c4_7e16f45902144309add3916882950c95_52657b4f52dd4ec1b5ab9d4b9d7de449_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_a99a051c99594f0a894cd857ebf8e3c4_7e16f45902144309add3916882950c95_52657b4f52dd4ec1b5ab9d4b9d7de449_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The inquiry succeeds and the account details for this IBAN are displayed, confirming that the teller portal is correctly connected to the backend and retrieving live customer data. Recall that this balance (€5,581.33) is the same value the Python teller client returned from the first prompt of this module; it is the balance you should receive on your attempt as well.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_3da99c94542442768fab3d07d922c1e7_56d514e182c64df08079c649208a3cab_a56ba25a8a654821bd95908d3f0bb377_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_3da99c94542442768fab3d07d922c1e7_56d514e182c64df08079c649208a3cab_a56ba25a8a654821bd95908d3f0bb377_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h2 id="vi-key-takeaways"><strong>vi. KEY TAKEAWAYS</strong></h2>
+<ul>
+<li>A screenshot and a sentence are a complete bug report for Bob; no knowledge of the root cause is required to start an investigation.</li>
+<li>Bob verifies before it edits: <code>curl</code> probes against the real backend established the true credentials and the true response shape before any code changed.</li>
+<li>Read Bob's summary after every fix. It states whether a restart is required and records what changed, which is the trail a regulated environment expects.</li>
+<li>Restarts remain a human action, and the white screen after one is the React build recompiling rather than a failure.</li>
+<li>Not every defect must be fixed before moving on; decide which issues block the task at hand and defer the rest deliberately.</li>
+<li>The balance retrieved through the portal matches the balance the Python client returned, which is the evidence that the generated front-end faithfully reaches the same backend.</li>
+</ul>
+<p>
+The teller portal is built, running, and proven against the live backend. In <a href="../3-1/" target="_blank">Module 3 | Secure</a>, Bob turns from builder to reviewer, scanning the GFM Bank codebase for security vulnerabilities and working them through to remediation and verification.</p>
+<hr></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../2-1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Building the Carbon Teller Front-End">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Building the Carbon Teller Front-End
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../3-1/" class="md-footer__link md-footer__link--next" aria-label="Next: Security Analysis and Remediation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Security Analysis and Remediation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 IBM
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.annotate", "content.code.copy", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+        <script src="../_static/hide-toc-nav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
