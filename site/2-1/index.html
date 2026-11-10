@@ -1,0 +1,1502 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Regulated Industry with IBM Bob">
+      
+      
+        <meta name="author" content="Christopher Bienko (cdbienko@us.ibm.com)">
+      
+      
+      
+        <link rel="prev" href="../1-1/">
+      
+      
+        <link rel="next" href="../2-2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Building the Carbon Teller Front-End - Regulated Industry with IBM Bob</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../styles/override-print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-the-carbon-teller-front-end" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Regulated Industry with IBM Bob" class="md-header__button md-logo" aria-label="Regulated Industry with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Regulated Industry with IBM Bob
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Building the Carbon Teller Front-End
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Regulated Industry with IBM Bob" class="md-nav__button md-logo" aria-label="Regulated Industry with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Regulated Industry with IBM Bob
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table of Contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registration and Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Analyze
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Analyze
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understanding the Core Banking Codebase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building the Carbon Teller Front-End
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building the Carbon Teller Front-End
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-what-you-will-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. WHAT YOU WILL BUILD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. WHY THIS MATTERS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-proving-the-backend-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. PROVING THE BACKEND CONNECTION
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iii. PROVING THE BACKEND CONNECTION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-a-new-task-and-send-the-test-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start a new task and send the test prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-through-the-approval-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Work through the approval loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-generating-the-teller-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. GENERATING THE TELLER PORTAL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iv. GENERATING THE TELLER PORTAL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-a-fresh-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start a fresh task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send-the-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Send the specification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watch-bob-ground-itself-in-the-carbon-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Watch Bob ground itself in the Carbon references
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approve-the-build-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approve the build steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-what-was-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review what was built
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v. KEY TAKEAWAYS
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running, Debugging, and Iterating
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Secure
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Secure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Analysis and Remediation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-what-you-will-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. WHAT YOU WILL BUILD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. WHY THIS MATTERS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-proving-the-backend-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. PROVING THE BACKEND CONNECTION
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iii. PROVING THE BACKEND CONNECTION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-a-new-task-and-send-the-test-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start a new task and send the test prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-through-the-approval-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Work through the approval loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-generating-the-teller-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. GENERATING THE TELLER PORTAL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iv. GENERATING THE TELLER PORTAL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-a-fresh-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start a fresh task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send-the-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Send the specification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watch-bob-ground-itself-in-the-carbon-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Watch Bob ground itself in the Carbon references
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approve-the-build-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approve the build steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-what-was-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review what was built
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v. KEY TAKEAWAYS
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><p><strong>MODULE 2 | BUILD</strong></p>
+<h1 id="building-the-carbon-teller-front-end"><strong>BUILDING THE CARBON TELLER FRONT-END</strong></h1>
+<hr>
+<h2 id="i-what-you-will-build"><strong>i. WHAT YOU WILL BUILD</strong></h2>
+<p></p><div class="video-container"><video style="position:relative;width:100%;height:22.172vw" controls="" alt="type:video"><source src="../_videos/Build%20-%20Building%20the%20Carbon%20Teller%20Front-End%20%5BBob%20Regulated%20L3%5D.mp4" type="video/mp4"></video></div><p></p>
+<div class="admonition note">
+<p>Christopher Bienko <em>(AI Enablement GTM Product Manager)</em> provides an overview of the <em>Build - Building the Carbon Teller Front-End</em> module for the hands-on enablement. <strong><a href="https://ibm.seismic.com/Link/Content/DCfFGMpqGQp378qPMGf8fXTQXPHV" target="_blank">[2 min]</a></strong></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">AI MATURITY CURVE</p>
+<p>This chapter is <strong>Module 2 | Delegate</strong> at project scale. One specification produces an entire application, and an approval gate precedes every consequential step. The specification also grounds Bob deliberately. It requires that every Carbon prop name and token come from the local <code>.d.ts</code> files rather than from memory, which is the context-quality discipline of <strong>Module 4 | Scale &amp; Extend</strong> applied to a design system. The result is code that maps onto the real backend and the real component library.</p>
+</div>
+<p>The previous module left you with a documented understanding of GFM Bank. This module puts it to use. You first prove that the existing Python teller client can reach the live GFM Bank backend and return a real account balance. You then hand Bob a single, detailed specification and have it generate a complete React teller portal on the IBM Carbon Design System, grounded in the offline Carbon references shipped with the workspace. By the end of the chapter the portal is built and its dependencies are installed with a clean compile.</p>
+<hr>
+<h2 id="ii-why-this-matters"><strong>ii. WHY THIS MATTERS</strong></h2>
+<p>A front-end for a regulated system has two obligations that ordinary web applications can afford to relax.</p>
+<ol>
+<li>It must call the real backend, with its real endpoints and roles and validation rules. A teller interface that drifts from the core banking API is a compliance problem in its own right.</li>
+<li>It must also present a consistent, accessible interface that an institution can standardize on, which is why the specification insists on the IBM Carbon Design System.</li>
+</ol>
+<p>Both obligations are met the same way: by grounding Bob in authoritative local sources before it writes a line of code. The Python clients from <strong>Module 1</strong> describe the API as it actually is. The <code>carbon-offline-reference</code> folder describes the component library as it actually is. The specification directs Bob to read both, and the build you observe in this chapter is the consequence.</p>
+<hr>
+<h2 id="iii-proving-the-backend-connection"><strong>iii. PROVING THE BACKEND CONNECTION</strong></h2>
+<div class="admonition warning">
+<p class="admonition-title">ATTENTION: NON-DETERMINISTIC WORK AHEAD</p>
+<p>The sequence of commands and approvals in this section is specific to the run captured in the screenshots, which was performed on Windows with PowerShell. Depending on your operating system and Bob version, the issues you encounter will differ, and you may encounter none at all. In every case Bob works toward a viable alternative on its own. Where it does not, a plain-language description of the problem is enough to move it forward. Later chapters demonstrate this.</p>
+</div>
+<p>Before building anything new, confirm that the existing teller client can reach the live backend. The exchange also shows how Bob works through environment-specific failures on its own.</p>
+<hr>
+<h3 id="start-a-new-task-and-send-the-test-prompt"><strong>Start a new task and send the test prompt</strong></h3>
+<ol>
+<li>
+<p>Open a new chat window by clicking the <strong>+</strong> button.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_7f1f826d77154961ba5eb82df7a5eeb2_4070d9a6eddc4dfc9e91d9ce9b657b0c_9cea41d5a16a4137b89412ae2a65aa79_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_7f1f826d77154961ba5eb82df7a5eeb2_4070d9a6eddc4dfc9e91d9ce9b657b0c_9cea41d5a16a4137b89412ae2a65aa79_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Paste the following prompt into the Agentic Sidebar chat input and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to test the teller client against the live backend server:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Can you test my teller client with my server:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>https://wxo-corebanking-backend.1944johjccn7.eu-de.codeengine.appdomain.cloud/docs
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Use IBAN DE89545769475769453536 to check the balance
+</code></pre></div>
+<details class="warning">
+<summary>CONNECTIVITY ISSUES?</summary>
+<p>The database and transactions supporting the <code>wxo-corebanking-backend</code> server resets every 60 minutes to its default stage to ensure that the environment is properly maintained. Resets to the server take approximately 1 minute to resolve. If you are experiencing connectivity issues, wait a few minutes and try again. If it continues to fail, reach out to the documentation authors for support.</p>
+</details>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_e559803e57064dec8a4abc2c54a898a5_552f80459a0b47f2b0bb681bf00109d6_2432c5d52f4e4a6abb5ae4288e430d74_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_e559803e57064dec8a4abc2c54a898a5_552f80459a0b47f2b0bb681bf00109d6_2432c5d52f4e4a6abb5ae4288e430d74_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob starts working, reading the teller client code and connecting to the backend server to run the balance inquiry.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_994aca96b2544d9e89c5a25c3a1f2ebb_2e3e67d61cab423390451db9ae24c7a3_9989cec51b874e71b83487ded5baf5ac_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_994aca96b2544d9e89c5a25c3a1f2ebb_2e3e67d61cab423390451db9ae24c7a3_9989cec51b874e71b83487ded5baf5ac_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="work-through-the-approval-loop"><strong>Work through the approval loop</strong></h3>
+<ol start="4">
+<li>
+<p>Bob requests permission to run an <strong>Execute Command</strong> that sets the <code>COREBANK_URL</code> environment variable and runs the teller client script against the live backend. Click <strong>Approve for task</strong> to allow it.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_109bf1db76514659bddc32ce3001fe91_d2eca4f16f6b4bfeb6df262ecb6c2dc9_51bd01110440444394b9bcd5c355099a_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_109bf1db76514659bddc32ce3001fe91_d2eca4f16f6b4bfeb6df262ecb6c2dc9_51bd01110440444394b9bcd5c355099a_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>In this example, the first command failed (exit code 1) because a trailing space in the URL caused <code>set</code> to encode it as <code>%20</code>.</p>
+<ul>
+<li>Bob explains the issue and requests permission to retry with a corrected PowerShell command that runs <code>python teller_client.py</code> directly from the code directory.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_ac768c0d7f9e40539492d2beb7096dd3_df7584edb11f494eb283c0dc5a0d7a21_2ffe33cf672041c1bb3057c096228fd4_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_ac768c0d7f9e40539492d2beb7096dd3_df7584edb11f494eb283c0dc5a0d7a21_2ffe33cf672041c1bb3057c096228fd4_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The second attempt also failed (exit code 1): the <code>cd</code> path was not resolving correctly.</p>
+<ul>
+<li>Bob now requests permission to run <code>python</code> directly with the full path to <code>teller_client.py</code> from the workspace root.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_332ba28184134d6ea94204e69d0f53a2_ae966c6915074e0bb04cbb69c218b25c_2535a80ee7874af9b7c447e45297b3cf_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_332ba28184134d6ea94204e69d0f53a2_ae966c6915074e0bb04cbb69c218b25c_2535a80ee7874af9b7c447e45297b3cf_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The previous runs defaulted to localhost because the environment variable was not being passed through correctly.</p>
+<ul>
+<li>Bob requests permission to run a PowerShell command that sets <code>$env:COREBANK_URL</code> inline before calling <code>python teller_client.py</code>, so that the remote URL is picked up.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_97883b2fef694ae2a0a8d9ccdbc6368c_45cbdb08dcdb4527a00dd47b4b3e799b_5120ca2876c945d59ce9507bb849ebe7_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_97883b2fef694ae2a0a8d9ccdbc6368c_45cbdb08dcdb4527a00dd47b4b3e799b_5120ca2876c945d59ce9507bb849ebe7_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>That command failed because the backend server took longer than 10 seconds to respond.</p>
+<ul>
+<li>Bob reports that DNS resolved and the TLS handshake completed — the server is simply slow to start — and requests permission to retry with a 90-second timeout.</li>
+<li>Click <strong>Approve</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_6a818494b157485bb66f554186c542a3_33ace80ad7d846f2b329e5eee19512d8_f0ca9b7154364e31976bea7f4b566a24_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_6a818494b157485bb66f554186c542a3_33ace80ad7d846f2b329e5eee19512d8_f0ca9b7154364e31976bea7f4b566a24_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob now requests permission to run a PowerShell command that sets <code>$env:COREBANK_URL</code> inline and runs the teller client with a <code>TIMEOUT = 60</code> override, giving the cold-starting backend more time to respond. Click <strong>Approve for task</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_f71a5ea164ac4205b51fc20f7acc9320_f4b66be9dfa146a499fb2314baadd03e_26aa5fef2a0447be968fab3c2e6463c7_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_f71a5ea164ac4205b51fc20f7acc9320_f4b66be9dfa146a499fb2314baadd03e_26aa5fef2a0447be968fab3c2e6463c7_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>After several failed attempts, Bob has sought out an alternative on its own: it has written a <code>_test_teller.py</code> helper script to isolate the connection test and requests permission to run <code>python _test_teller.py</code> with a <code>timeout_seconds: 180</code> override. Click <strong>Approve for task</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_38b1d362b2f24576b7148bac96c5d4d7_7b93f90107d040c9a1a62f850ad7d7f4_5ee6911d10eb4777b0a9ebd51ba29977_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_38b1d362b2f24576b7148bac96c5d4d7_7b93f90107d040c9a1a62f850ad7d7f4_5ee6911d10eb4777b0a9ebd51ba29977_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The helper script ran successfully and returned live transaction data from the backend — multiple PAYMENT records with account IDs, timestamps, and EUR amounts.</p>
+<ul>
+<li>Bob confirms that everything works and requests permission to delete the temporary file (<code>del _test_teller.py</code>).</li>
+<li>Click <strong>Approve for task</strong> to let it clean up.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_4cb13187164447bca12b8e319e01c6aa_1ef347a12e194a1fb73958b76ee935af_181b56c123b74cb096b5bd3137409e3f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_4cb13187164447bca12b8e319e01c6aa_1ef347a12e194a1fb73958b76ee935af_181b56c123b74cb096b5bd3137409e3f_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob deletes the temporary file and delivers the result: the teller client connected successfully.</p>
+<ul>
+<li>It displays the summary for IBAN <code>DE89545769475769453536</code>: the account ID and customer ID, together with a <strong>current balance of €5,581.33</strong>.</li>
+<li>Below them are the latest five ledger rows with booking timestamps and EUR amounts.</li>
+<li><strong>Record that balance</strong> to a notepad, as you will meet it again at the end of the next chapter.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_af194ac5bb464b47b8a0949e8eea08f4_eabb3ceb2dbe4316961e547f97e73596_1b706f1a1a0240199abe356294a24b4f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_af194ac5bb464b47b8a0949e8eea08f4_eabb3ceb2dbe4316961e547f97e73596_1b706f1a1a0240199abe356294a24b4f_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h2 id="iv-generating-the-teller-portal"><strong>iv. GENERATING THE TELLER PORTAL</strong></h2>
+<p>With the backend proven reachable, hand Bob the specification for the front-end. It is a long prompt by design. It names the backend and the credentials. It lists every teller operation to replicate and the Carbon components to use. It also sets out the technical and security requirements to honor.</p>
+<hr>
+<h3 id="start-a-fresh-task"><strong>Start a fresh task</strong></h3>
+<ol>
+<li>
+<p>In the Bob IDE, locate the <strong>IBM BOB</strong> panel on the right side of the screen.</p>
+<ul>
+<li>Click the <strong>New Task</strong> button (the <strong>+</strong> icon in the top-right corner of the panel) to open a fresh task session.</li>
+<li>A new task gives Bob a clean context window, free from the previous conversation.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_978f5e4e93074e54818f4f31016a8523_6a7cf2bf702440d19af06c50a8be300c_e54fb267701a4671b092e872e212cb0c_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_978f5e4e93074e54818f4f31016a8523_6a7cf2bf702440d19af06c50a8be300c_e54fb267701a4671b092e872e212cb0c_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Before submitting the prompt, confirm once again that Bob is set to <strong>Agent</strong> mode; the <strong>Agent</strong> toggle is visible at the bottom-left of the panel. If you are comfortable with it, confirm that the <strong>Auto-approve</strong> permissions are enabled as well.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_d0aa3442c0594024bd41f83c4f62defd_b3234736801740859308adedfcba128d_703e2f8771d048a79181ca276db855ad_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_d0aa3442c0594024bd41f83c4f62defd_b3234736801740859308adedfcba128d_703e2f8771d048a79181ca276db855ad_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="send-the-specification"><strong>Send the specification</strong></h3>
+<ol start="3">
+<li>
+<p>Copy and paste the following prompt into the Agentic Sidebar. It instructs Bob to build a comprehensive React-based teller front-end for GFM Bank using the IBM Carbon Design System, referencing the local Carbon component <code>.d.ts</code> files for accurate API shapes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Before beginning implementation, read carbon-offline-reference/CARBON_REFERENCE.md to locate the .d.ts path for every Carbon component you plan to use, then read each of those .d.ts files. All prop names, valid values, design token names, and icon names must come from those local files — do not use memory or any external source for Carbon API shapes.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Create a comprehensive React-based Teller Front-End application for GFM Bank using IBM Carbon Design System with the following specifications:
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Application Requirements:
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>- Develop a modern, professional banking teller interface that connects to the Core Banking backend server at https://wxo-corebanking-backend.1944johjccn7.eu-de.codeengine.appdomain.cloud/docs
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Authentication System:
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>- Implement a secure login page with IBM Carbon form components
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>- Store credentials in environment variables (.env file): username "teller" and password "teller123"
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>- Include proper form validation and error handling
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>- Add session management with secure token storage
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>Main Dashboard Layout:
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>- Display "GFM Bank" branding prominently in the header using IBM Carbon design tokens
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>- Position a real-time backend server status indicator in the top-right corner showing "Online" (green) or "Offline" (red/gray) with automatic health check polling
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>- Implement IBM Carbon's UI Shell component for consistent navigation and layout
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>Teller Operations Interface:
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>- Replicate all functionality from the teller_client.py with modern UI components:
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>- Account balance inquiry with IBAN input and formatted currency display
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>- Customer account creation form with validation
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>- Money deposit interface with amount input and transaction confirmation
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>- Money withdrawal interface with balance verification
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>- Account-to-account transfer with dual IBAN inputs and amount specification
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>- Transaction history viewer with sortable, filterable data tables
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>- Account details lookup with comprehensive information display
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>Design Considerations:
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>- Before writing any code, read carbon-offline-reference/CARBON_REFERENCE.md and the .d.ts file for every component you intend to use. Use only prop names and values found in those files. Do not rely on memory for any Carbon prop shape.
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>- Apply IBM Carbon banking theme with professional color palette (blues, grays, whites).
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>- Use only token names listed in the Design Token Quick-Reference table in CARBON_REFERENCE.md — written as var(--cds-) in CSS. Never use removed v10 token names (brand-01, ui-01, ui-02) or the bx-- CSS prefix.
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>- Use Carbon's data table components for transaction lists and account information
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>- Implement Carbon notifications for success/error messages
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>- Add loading states using Carbon skeleton components during API calls
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>- Ensure responsive design for various screen sizes
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>- Include proper error boundaries and fallback UI
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>- Add confirmation modals for critical operations (withdrawals, transfers)
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>- Display currency amounts with proper formatting (EUR symbol, decimal places)
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>- Implement form validation with real-time feedback
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>- Add accessibility features (ARIA labels, keyboard navigation)
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>Technical Implementation:
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>- Use React functional components with hooks
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>- Implement Axios or Fetch for API communication
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>- Add environment variable configuration for backend URL and credentials
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>- Add a "proxy" field in package.json pointing to the backend URL so the dev server forwards API requests and avoids CORS errors in the browser
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>- Include proper TypeScript types or PropTypes validation
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>- Structure components logically (pages, components, services, utils)
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>- Implement React Router for navigation between views
+<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>- Add state management (Context API or Redux) for user session and app state
+<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>- Include automated backend health checks with configurable intervals
+<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>- Handle API errors gracefully with user-friendly messages
+<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>
+<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>Security Features:
+<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a>- Implement JWT token handling if applicable
+<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>- Add automatic logout on session expiration
+<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a>- Sanitize all user inputs
+<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>- Use HTTPS for all API communications
+<a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a>- Implement CORS handling via the dev server proxy — do not hardcode the backend URL as the axios baseURL in development
+<a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>
+<a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a>Additional Features:
+<a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a>- Add a dashboard summary showing key metrics
+<a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a>- Include quick action buttons for common teller operations
+<a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a>- Implement search functionality for customer accounts
+<a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a>- Add print receipt functionality for transactions
+<a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a>- Include audit trail logging for compliance
+<a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a>
+<a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a>Provide complete, production-ready code with proper project structure, package.json with all dependencies (react, @carbon/react, react-router-dom, axios, dotenv), and clear setup instructions.
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_bb46cd13fe5b49298ac1843e43b6a886_c2ae068d25f44e3489bcd7e8abae3dfd_7e6eece9dffb476caa0b318311cdbae4_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_bb46cd13fe5b49298ac1843e43b6a886_c2ae068d25f44e3489bcd7e8abae3dfd_7e6eece9dffb476caa0b318311cdbae4_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>With the prompt pasted into the Agentic Sidebar, hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to execute the instructions.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_10dd0e6a77bf49119ce0c4e9b2dfd5bd_caf6da9a40b544fbb0fa78a965201c3c_45c3b26f9753417e977f36e66c1f48d6_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_10dd0e6a77bf49119ce0c4e9b2dfd5bd_caf6da9a40b544fbb0fa78a965201c3c_45c3b26f9753417e977f36e66c1f48d6_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="watch-bob-ground-itself-in-the-carbon-references"><strong>Watch Bob ground itself in the Carbon references</strong></h3>
+<ol start="5">
+<li>
+<p>Bob begins working immediately. As instructed, it first reads <code>carbon-offline-reference/CARBON_REFERENCE.md</code>. It then expands to read the individual Carbon component <code>.d.ts</code> files. These are TypeScript declaration files that describe each component's exact props and API surface. Among the components it reads are <code>SideNavLink</code> and <code>Header</code>, then <code>SideNav</code> and <code>HeaderName</code>, along with <code>DataTable</code> and others. This reading phase is what allows Bob to generate accurate component code rather than inventing prop names from memory.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_93dbdf43a215457883d93f3ec715ee6b_057d916933864dc2849db3baa5b28e50_a321505fa340440d85d0b07add097e93_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_93dbdf43a215457883d93f3ec715ee6b_057d916933864dc2849db3baa5b28e50_a321505fa340440d85d0b07add097e93_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Having finished reading the Carbon <code>.d.ts</code> files, Bob announces that it has everything it needs and moves on to understand the workspace layout. It lists files in <code>bob-banking-lab</code> and in <code>bob-banking-lab/LABs</code>, and then in the Banking Industry folder.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_5737dd70b157457b9471e32282d9d19a_6e1b3177ec654fcbb380a943b1b45c4f_f4d84462f7614172bfa39209fac3ed9a_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_5737dd70b157457b9471e32282d9d19a_6e1b3177ec654fcbb380a943b1b45c4f_f4d84462f7614172bfa39209fac3ed9a_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob continues working through its plan. It has listed the full <code>bob-banking-lab/LABs</code> directory tree, read the existing Teller Application lab files, and is reading <code>teller_client.py</code> to understand every API endpoint the new front-end will need to call.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_e48b496a16194f6cb970b6a2d397079f_97f8b63a9f7f4c27a74ae28d9cd23167_de1cb9dce5fb48649f1d27cfe0ee76d9_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_e48b496a16194f6cb970b6a2d397079f_97f8b63a9f7f4c27a74ae28d9cd23167_de1cb9dce5fb48649f1d27cfe0ee76d9_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob has finished its discovery phase and produced a complete map of the GFM Bank backend API. The Agentic Sidebar lists every endpoint it found by reading the Python client files:</p>
+<ul>
+<li><code>POST /token</code> (login)</li>
+<li><code>GET /accounts</code></li>
+<li><code>GET /transactions/{account_id}</code></li>
+<li><code>POST /transfer</code></li>
+<li><code>GET /customers</code></li>
+<li><code>POST /transactions/{account_id}</code> (deposit and reversal)</li>
+<li><code>PATCH /accounts/{account_id}/overdraft</code></li>
+</ul>
+<p>This discovery step is what ensures the generated front-end maps exactly onto the real backend rather than onto a generic template that would need manual correction.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_d1516db5b94942d8871ee0ab2abf7f32_087252faa4ea4d449b3d1b5fc5005b99_57cde226fd484d45b76e1f564e5eb732_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_d1516db5b94942d8871ee0ab2abf7f32_087252faa4ea4d449b3d1b5fc5005b99_57cde226fd484d45b76e1f564e5eb732_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="approve-the-build-steps"><strong>Approve the build steps</strong></h3>
+<ol start="9">
+<li>
+<p>Bob reaches its first approval checkpoint. After declaring that it is ready to build, it attempted to write <code>teller-ui/package.json</code>, but the target directory did not yet exist.</p>
+<ul>
+<li>Bob now requests permission to run a shell command to create the folder.</li>
+<li>Click <strong>Approve for task</strong> to allow Bob to create the directory and continue.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_ec8accb902a841adb00b10a1e5e38896_e36a7a0afa134f1a86fca7311dfffd71_3b22c4c47b264c0c9a5e3c2543e64b73_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_ec8accb902a841adb00b10a1e5e38896_e36a7a0afa134f1a86fca7311dfffd71_3b22c4c47b264c0c9a5e3c2543e64b73_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Progress is visible: the <code>mkdir</code> command ran, <code>package.json</code> was written, and two additional files were edited. Note the green change indicator on <code>bob-banking-lab</code> in the file explorer — Bob is actively writing files to your workspace. Bob has also encountered a limitation: creating the <code>public/</code> sub-directory failed because the file-write tool cannot handle spaces in deeply nested folder paths.</p>
+<ul>
+<li>Bob self-corrects and requests permission to run a <code>cd</code> command to navigate into the new directory before creating sub-directories.</li>
+<li>In the <strong>Tools awaiting approval</strong> panel, click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_3d4c848e2b064c369229098b3319e79e_279ddbd42d9d45559d4393bd7e09168e_473303c97eaf44ebb0f43e43e1b53e8f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_3d4c848e2b064c369229098b3319e79e_279ddbd42d9d45559d4393bd7e09168e_473303c97eaf44ebb0f43e43e1b53e8f_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The first <code>cd</code> command has run, and a second <strong>Execute Command</strong> approval is waiting for another <code>cd</code> deeper into the project structure. Click <strong>Approve for task</strong> again.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_d3d59315556248489e56c2589a643683_e56f2099adaf4b63a65fe764a3e95f9e_cf2a0a460172450cac35424d6a1ccd92_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_d3d59315556248489e56c2589a643683_e56f2099adaf4b63a65fe764a3e95f9e_cf2a0a460172450cac35424d6a1ccd92_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob requests permission to write <code>public/index.html</code> using a PowerShell <code>Set-Content</code> command, to avoid path-handling issues with special characters and spaces.</p>
+<ul>
+<li>The <strong>Tools awaiting approval</strong> panel shows the request, containing the complete HTML boilerplate for the GFM Bank Teller Portal.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_ddd8bfe9381a43f390da75d35f715f48_0dd88389a6fe4d61a6d8b91a206ce923_799cc4a698bb47a09777334a07c2fafc_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_ddd8bfe9381a43f390da75d35f715f48_0dd88389a6fe4d61a6d8b91a206ce923_799cc4a698bb47a09777334a07c2fafc_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>That command exited with <code>code 1</code> because of PowerShell quote-escaping syntax.</p>
+<ul>
+<li>Bob immediately self-corrects and formulates a refined PowerShell script that uses a <code>$content</code> variable to write <code>public/index.html</code> safely.</li>
+<li>Click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_73f526a7f76a40d4865f808b2eefbac0_d894ddd29fa040219af5960318d8c319_e1b013b58eca4e86b96d258af78158da_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_73f526a7f76a40d4865f808b2eefbac0_d894ddd29fa040219af5960318d8c319_e1b013b58eca4e86b96d258af78158da_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>To handle workspace paths with spaces and special characters reliably across platforms, Bob switches to a Python script using <code>pathlib</code>. The script creates every target sub-directory and writes <code>public/index.html</code>. The sub-directories are:</p>
+<ul>
+<li><code>public</code></li>
+<li><code>src</code></li>
+<li><code>src/pages</code></li>
+<li><code>src/components</code></li>
+<li><code>src/context</code></li>
+<li><code>src/services</code></li>
+<li><code>src/utils</code></li>
+</ul>
+<p>Click <strong>Approve for task</strong> to run it.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_10a901258f7e4955821782ce20ca0b2c_f04d24fe049f432e82c7b5e84d28bb09_d37d70f6527b457a9838dba75c48588a_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_10a901258f7e4955821782ce20ca0b2c_f04d24fe049f432e82c7b5e84d28bb09_d37d70f6527b457a9838dba75c48588a_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>After the directory-creation script executes, Bob runs a verification script using <code>BASE.iterdir()</code> to confirm that the target directory and sub-directories exist before proceeding. Click <strong>Approve for task</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_4c7a6bea54b14198bd5eb3a20424793f_d02ab72be2fa4eaba51af2c2e290daae_12e71127b2584c83ae1cac1480ee3523_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_4c7a6bea54b14198bd5eb3a20424793f_d02ab72be2fa4eaba51af2c2e290daae_12e71127b2584c83ae1cac1480ee3523_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob determines that writing a dedicated Python script file and executing it will be the cleanest way to generate the remaining application code across the folder hierarchy. The Agentic Sidebar shows it changing approach: <em>"Let me try a different approach — write a Python script file first and then execute it."</em></p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_233d5308a8554eab9f6da70ed2fa487f_ba886091697e44278f985cf10dc0dfc6_1fc22972d67f427fb1c1abe44fb49545_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_233d5308a8554eab9f6da70ed2fa487f_ba886091697e44278f985cf10dc0dfc6_1fc22972d67f427fb1c1abe44fb49545_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob pauses to inspect the current state of the project folder with a <code>dir</code> command before running its generator. Click <strong>Approve for task</strong>.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_ab500cb0fb444315a86164928475b1af_709a206cc9204ab5b49f9da618febec0_f1647a8708ff4c4c95b8fe2c62397e54_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_ab500cb0fb444315a86164928475b1af_709a206cc9204ab5b49f9da618febec0_f1647a8708ff4c4c95b8fe2c62397e54_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>The directory check succeeds. Bob confirms that the target directories exist and begins writing a Python generator script designed to produce all of the application's source files at once.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_df21405510c0416fb2b7c4ee46f37b4b_83952b0ba12e40abae4824ff85c48893_b67207dbb5404b398cb5692705f600b1_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_df21405510c0416fb2b7c4ee46f37b4b_83952b0ba12e40abae4824ff85c48893_b67207dbb5404b398cb5692705f600b1_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob has written <code>scripts/generate_teller_ui.py</code> and requests permission to execute it with <code>python scripts/generate_teller_ui.py</code>.</p>
+<ul>
+<li>Because running a newly generated script triggers a security confirmation, a <strong>Security warning</strong> notice appears.</li>
+<li>Tick the <strong>I understand the risk</strong> checkbox, then click <strong>Approve</strong> to run the script and generate the complete front-end codebase.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_66b63d2f679d4133aff20050b2dff2ef_bbb65062d5714d60b5055e461b62324a_73c758ef3a7e4179911215e7b86323e2_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_66b63d2f679d4133aff20050b2dff2ef_bbb65062d5714d60b5055e461b62324a_73c758ef3a7e4179911215e7b86323e2_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>With the generator script approved and running, Bob scaffolds the full set of application components and service layers.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_92c3b30a394047a0933da535f23529a2_bb42281385d843c4b91b725b7be4eaef_fa7df98869234e9790aca7ae8bae13cf_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_92c3b30a394047a0933da535f23529a2_bb42281385d843c4b91b725b7be4eaef_fa7df98869234e9790aca7ae8bae13cf_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob has generated all source files, verified them, and written the project <code>README.md</code>.</p>
+<ul>
+<li>Bob now begins final validation by preparing to run <code>npm install</code> inside the new UI directory to ensure all dependencies resolve cleanly.</li>
+<li>In the <strong>Tools awaiting approval</strong> panel, click <strong>Approve for task</strong>.</li>
+</ul>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_747461b0f6b94032af69e2b638d3c621_b94de3603e98460c8bd58eaf3340cca3_41a5085aa81b4cc0900c3a67d2894b6d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_747461b0f6b94032af69e2b638d3c621_b94de3603e98460c8bd58eaf3340cca3_41a5085aa81b4cc0900c3a67d2894b6d_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>With all npm packages installed, Bob is ready for the final build check, which verifies that the React code compiles with no TypeScript or syntax errors. Click <strong>Approve for task</strong> to run the build.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_d44f8720cccd414a8e2d46d20be22a5b_490d30281c1d474eb2da6cb3fe13ab7b_ee7c5fa2203d44a1a884f06dcaa6bc34_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_d44f8720cccd414a8e2d46d20be22a5b_490d30281c1d474eb2da6cb3fe13ab7b_ee7c5fa2203d44a1a884f06dcaa6bc34_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="review-what-was-built"><strong>Review what was built</strong></h3>
+<ol start="23">
+<li>
+<p>The task is complete. The top of the Agentic Sidebar displays a green <strong>All tasks completed!</strong> badge with the sub-task counter, confirming that every planned step finished. Below it, Bob presents a <strong>What was built</strong> summary with a <strong>File map</strong> table listing each generated file alongside its purpose. Key files include:</p>
+<ul>
+<li><code>package.json</code> — the dependencies and the proxy to the backend URL</li>
+<li><code>.env</code> — the teller credentials via <code>REACT_APP_TELLER_USERNAME</code> and <code>REACT_APP_TELLER_PASSWORD</code></li>
+<li><code>src/index.scss</code> — Carbon imports and custom CSS variable overrides</li>
+<li><code>src/services/api.js</code> — an Axios instance with a Bearer-token interceptor and auto-logout on 401</li>
+<li><code>src/context/AuthContext.js</code> — session state via <code>sessionStorage</code> with <code>login()</code> and <code>logout()</code></li>
+</ul>
+<p>The teller front-end has been generated from a single prompt. It is mapped onto the real backend and built against the real Carbon library.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_225905af5d7341ee82dad713914bb5fe_3aecdbef8b7e46a5852240497e79331d_1ecfb120084746d4b2230902e11c7fa8_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_58449641dd294a158479a5a5e99d9a4f/steps/step_225905af5d7341ee82dad713914bb5fe_3aecdbef8b7e46a5852240497e79331d_1ecfb120084746d4b2230902e11c7fa8_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h2 id="v-key-takeaways"><strong>v. KEY TAKEAWAYS</strong></h2>
+<ul>
+<li>Prove the backend before building on it: the teller client's successful balance inquiry establishes the ground truth the front-end must reproduce.</li>
+<li>Environment-specific failures are normal in agentic work, and Bob works through them by explaining each one and proposing an alternative; your role is to read the explanation before approving.</li>
+<li>A long, explicit specification is what makes a one-prompt build reliable. It names the backend and the operations, then the components and the constraints, so that Bob is not left to guess.</li>
+<li>Grounding Bob in local references (the Python clients and the Carbon <code>.d.ts</code> files) produces code that matches the real API and the real component library.</li>
+<li>Security warnings on newly generated scripts are gates you clear deliberately, after reading what the script will do.</li>
+<li>The build ends with a file map and a clean compile. From there the application is yours to run and to judge.</li>
+</ul>
+<p>
+The application is built, but has not yet been run. In <a href="../2-2/" target="_blank">Running, Debugging, and Iterating</a>, you start the development server and sign in. You then work through the issues that surface with a screenshot and a sentence, reviewing Bob's fix each time, before completing the module's teller task.</p>
+<hr></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../1-1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Understanding the Core Banking Codebase">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Understanding the Core Banking Codebase
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../2-2/" class="md-footer__link md-footer__link--next" aria-label="Next: Running, Debugging, and Iterating">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Running, Debugging, and Iterating
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 IBM
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.annotate", "content.code.copy", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+        <script src="../_static/hide-toc-nav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

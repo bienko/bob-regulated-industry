@@ -1,0 +1,1611 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Regulated Industry with IBM Bob">
+      
+      
+        <meta name="author" content="Christopher Bienko (cdbienko@us.ibm.com)">
+      
+      
+      
+        <link rel="prev" href="../2-2/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Security Analysis and Remediation - Regulated Industry with IBM Bob</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../styles/override-print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#security-analysis-and-remediation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Regulated Industry with IBM Bob" class="md-header__button md-logo" aria-label="Regulated Industry with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Regulated Industry with IBM Bob
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Security Analysis and Remediation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Regulated Industry with IBM Bob" class="md-nav__button md-logo" aria-label="Regulated Industry with IBM Bob" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Regulated Industry with IBM Bob
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table of Contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registration and Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Analyze
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Analyze
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understanding the Core Banking Codebase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building the Carbon Teller Front-End
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running, Debugging, and Iterating
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Secure
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Secure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Analysis and Remediation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Analysis and Remediation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-what-you-will-secure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. WHAT YOU WILL SECURE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. WHY THIS MATTERS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-scanning-for-vulnerabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. SCANNING FOR VULNERABILITIES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iii. SCANNING FOR VULNERABILITIES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prepare-a-clean-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare a clean session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-vulnerability-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the vulnerability scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-documenting-the-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. DOCUMENTING THE FINDINGS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iv. DOCUMENTING THE FINDINGS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-the-security-audit-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generate the security audit report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#produce-the-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Produce the deep dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v-remediating-and-verifying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v. REMEDIATING AND VERIFYING
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v. REMEDIATING AND VERIFYING">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apply-the-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apply the fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-the-remediation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify the remediation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-confirming-the-application-still-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vi. CONFIRMING THE APPLICATION STILL WORKS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="vi. CONFIRMING THE APPLICATION STILL WORKS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restart-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restart the application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-apply-the-remaining-polish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: apply the remaining polish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vii-wrapping-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vii. WRAPPING UP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viii-earn-accreditation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        viii. EARN ACCREDITATION
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#i-what-you-will-secure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        i. WHAT YOU WILL SECURE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ii. WHY THIS MATTERS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-scanning-for-vulnerabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iii. SCANNING FOR VULNERABILITIES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iii. SCANNING FOR VULNERABILITIES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prepare-a-clean-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare a clean session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-vulnerability-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the vulnerability scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-documenting-the-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iv. DOCUMENTING THE FINDINGS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iv. DOCUMENTING THE FINDINGS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-the-security-audit-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generate the security audit report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#produce-the-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Produce the deep dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v-remediating-and-verifying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v. REMEDIATING AND VERIFYING
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v. REMEDIATING AND VERIFYING">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apply-the-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apply the fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-the-remediation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify the remediation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-confirming-the-application-still-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vi. CONFIRMING THE APPLICATION STILL WORKS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="vi. CONFIRMING THE APPLICATION STILL WORKS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restart-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restart the application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-apply-the-remaining-polish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: apply the remaining polish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vii-wrapping-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vii. WRAPPING UP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viii-earn-accreditation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        viii. EARN ACCREDITATION
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><p><strong>MODULE 3 | SECURE</strong></p>
+<h1 id="security-analysis-and-remediation"><strong>SECURITY ANALYSIS AND REMEDIATION</strong></h1>
+<hr>
+<h2 id="i-what-you-will-secure"><strong>i. WHAT YOU WILL SECURE</strong></h2>
+<p></p><div class="video-container"><video style="position:relative;width:100%;height:22.172vw" controls="" alt="type:video"><source src="../_videos/Secure%20-%20Security%20Analysis%20and%20Remediation%20%5BBob%20Regulated%20L3%5D.mp4" type="video/mp4"></video></div><p></p>
+<div class="admonition note">
+<p>Christopher Bienko <em>(AI Enablement GTM Product Manager)</em> provides an overview of the <em>Secure - Security Analysis and Remediation</em> module for the hands-on enablement. <strong><a href="https://ibm.seismic.com/Link/Content/DCJTqPpM3VhMgGFCmbF6MBX98G48" target="_blank">[4 min]</a></strong></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">AI MATURITY CURVE</p>
+<p>This closing module extends Bob's reach to reviewing the code it has been working with all along. The documents it produces — the audit report, the deep dive, and the verification — are the record a regulated environment requires of any change to a system that handles money. Your control remains where it has been throughout. Each fixed file waits for your approval before it is written. The verification report is something you read and judge rather than accept on its word.</p>
+</div>
+<p>The first two modules had Bob understand the GFM Bank system and build on top of it. This module turns Bob into the system's reviewer. You direct it through a vulnerability scan of the codebase, classified against the <code>OWASP Top 10</code> and <code>CWE</code>. You will afterwards have Bob produce a formal security audit report and a deep dive on the five most critical findings. Finally, Bob will apply the remediations and write a verification report confirming that the fixes have held. A final run of the teller portal confirms that the patches did not break any functionality or systems.</p>
+<hr>
+<h2 id="ii-why-this-matters"><strong>ii. WHY THIS MATTERS</strong></h2>
+<p>Security review is where a regulated industry's expectations are most explicit. A finding is expected to carry a classification and a severity. It must name a location and an attack scenario. It must also propose a remediation and that remediation is expected to be verified rather than assumed. Producing that material by hand is slow work, which is why it so often arrives late, after the code has shipped.</p>
+<p>Bob compresses the cycle into a single session. It scans the code and ranks what it finds. It documents the findings and fixes them, then it verifies the result. Each stage is left behind as a file you can hand to an auditor for deeper review and inspection. Whether a finding is accepted, deferred, or challenged remains a judgment left to the human-in-the-loop. This practice mirrors the review-first, trust-later discipline of this entire hands-on lab applied to scenarios where the consequences for failure are highest.</p>
+<hr>
+<h2 id="iii-scanning-for-vulnerabilities"><strong>iii. SCANNING FOR VULNERABILITIES</strong></h2>
+<p>The scan runs in a fresh session so that Bob's context holds only the security work rather than the state left over from the previous modules.</p>
+<hr>
+<h3 id="prepare-a-clean-session"><strong>Prepare a clean session</strong></h3>
+<ol>
+<li>
+<p>Return to IBM Bob and stop any open terminal processes by pressing the <strong>Kill</strong> (garbage-can) button in the terminal panel.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_1bc2ff11e6d744348e6c27e138d17af0_d6d1ffe3d6c744ce8bd170590a97d303_fa52b293e1f94d2081a58c6451fa0dc8_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_1bc2ff11e6d744348e6c27e138d17af0_d6d1ffe3d6c744ce8bd170590a97d303_fa52b293e1f94d2081a58c6451fa0dc8_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Press the <strong>+</strong> button to open a new chat window. A fresh chat gives Bob a clean context window, without the state from Modules 1 and 2, which keeps the security analysis focused.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_9eb37cfe921341a487dfa0cadf44bd28_512ae4812a5c4653b65b55d6bf2209a2_dee9ba10ff7440bf9c5031f5a88c15db_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_9eb37cfe921341a487dfa0cadf44bd28_512ae4812a5c4653b65b55d6bf2209a2_dee9ba10ff7440bf9c5031f5a88c15db_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>As a reminder, confirm that you are in <strong>Agent</strong> mode. If you are comfortable doing so, confirm as well that the <strong>Auto-approve</strong> permissions are enabled as directed in Module 1.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_b78befda219941109a660bd10d11b405_c8541ce7c74a48b290d85646a48aa7e1_d2d51a7dd53446e1b9c971d3a4e6772b_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_b78befda219941109a660bd10d11b405_c8541ce7c74a48b290d85646a48aa7e1_d2d51a7dd53446e1b9c971d3a4e6772b_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="run-the-vulnerability-scan"><strong>Run the vulnerability scan</strong></h3>
+<ol start="4">
+<li>
+<p>Paste the following prompt and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to have Bob perform a comprehensive security vulnerability scan of the codebase:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Analyze the code files in this project for security vulnerabilities. Identify all security issues, categorize them by type (OWASP Top 10, CWE), and rank them by severity (Critical, High, Medium, Low).
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>For each vulnerability found, provide:
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>- Location (file and line number)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>- Vulnerability type and category
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>- Description of the security risk
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>- Potential attack scenario
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>- Severity rating with justification
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_e26b519e6026418b9dcdd5d3600fadd1_030331ab3b6b4d0bbfb7249e7a7e2839_637efbbe9c7e4a3abf90b5ace331b6e6_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_e26b519e6026418b9dcdd5d3600fadd1_030331ab3b6b4d0bbfb7249e7a7e2839_637efbbe9c7e4a3abf90b5ace331b6e6_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob starts working, reading through the Python backend files to identify vulnerabilities and classifying them against the <code>OWASP Top 10</code> and <code>CWE</code> frameworks.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_30080ff595954f08b73d9534e38946f7_fdc4d788103d4448bc75a503d53c6433_e142525faa4748b4b3b149c2180e7ed0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_30080ff595954f08b73d9534e38946f7_fdc4d788103d4448bc75a503d53c6433_e142525faa4748b4b3b149c2180e7ed0_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob completes the scan. The analysis may take a minute or two; wait for it to finish before proceeding.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_a604c254c72f4586ba8a8bae6323e7b1_f75024bb010c4111b86da510da6fa1a4_682853723da4462c8f2783d2c8c0a75f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_a604c254c72f4586ba8a8bae6323e7b1_f75024bb010c4111b86da510da6fa1a4_682853723da4462c8f2783d2c8c0a75f_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Scroll through the initial portion of Bob's findings and continue reading the full analysis output.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_4b2c1aba3cb843d19b34ea15347a591b_4fdbb019d8d542be8f7d43ebb80fcad1_50b1f0a9fec84d32895752ef03149eb0_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_4b2c1aba3cb843d19b34ea15347a591b_4fdbb019d8d542be8f7d43ebb80fcad1_50b1f0a9fec84d32895752ef03149eb0_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Finish reading the full security analysis. Make a note of the critical and high-severity findings, which are addressed in the sections that follow.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_a0269991d7ca44e28f67766a1bd940f0_c123bd9cf8234e959759a9c1090a0710_d6fafb537c1640dca781b35d96966734_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_a0269991d7ca44e28f67766a1bd940f0_c123bd9cf8234e959759a9c1090a0710_d6fafb537c1640dca781b35d96966734_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h2 id="iv-documenting-the-findings"><strong>iv. DOCUMENTING THE FINDINGS</strong></h2>
+<p>The scan lives in the sidebar. The next two prompts turn it into the documents a review process expects: a structured audit report and a detailed treatment of the most serious findings.</p>
+<hr>
+<h3 id="generate-the-security-audit-report"><strong>Generate the security audit report</strong></h3>
+<ol>
+<li>
+<p>Paste the following prompt and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to have Bob generate a structured security audit report:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Generate a comprehensive SECURITY_AUDIT_REPORT.md document that includes:
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a> 1. **Executive Summary**
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    - Overview of files analyzed
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    - Total vulnerabilities found by severity
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    - Overall risk assessment
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    - Key recommendations
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a> 2. **Vulnerability Inventory**
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    For each vulnerability:
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    - Unique ID (e.g., VULN-001)
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    - File and line number
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    - Vulnerability title
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    - CWE/OWASP classification
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    - Severity rating (Critical/High/Medium/Low)
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    - CVSS score estimate (if applicable)
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    - Detailed description
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    - Proof of concept / attack scenario
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    - Business impact
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    - Remediation recommendation
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    - Remediation effort estimate
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a> 3. **Risk Matrix**
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    - Visual representation of vulnerabilities by severity and likelihood
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a> 4. **Remediation Roadmap**
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>    - Prioritized list of fixes
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    - Suggested implementation order
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>    - Dependencies between fixes
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a> 5. **Secure Coding Guidelines**
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>    - Best practices to prevent similar issues
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>    - Language-specific recommendations for Python
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>Save this as SECURITY_AUDIT_REPORT.md in the current directory.
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_08231bafaa904ff3a4e331fd50929189_df1feffcc4134506bd62739a534616a9_2e147b5494434168aeb22fce94c40217_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_08231bafaa904ff3a4e331fd50929189_df1feffcc4134506bd62739a534616a9_2e147b5494434168aeb22fce94c40217_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob may attempt to generate the entire report in a single pass, which can take several minutes. Wait for the task to complete.</p>
+<div class="admonition warning">
+<p class="admonition-title">IF BOB STOPS MID-GENERATION</p>
+<p>If Bob appears to time out or stop part-way through the report, send the prompt <code>continue</code> to resume from where it left off.</p>
+</div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_ab15fd871bcc47fb82d712c78458b24d_e22b3c0f585b41c3b3769f013a6f6a26_6b7259b20db24104b9ed46b85870b76e_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_ab15fd871bcc47fb82d712c78458b24d_e22b3c0f585b41c3b3769f013a6f6a26_6b7259b20db24104b9ed46b85870b76e_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>When the report is finished, click <strong>SECURITY_AUDIT_REPORT.md</strong> in the file explorer sidebar to open it.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_ae17713a66ce47ad861bb83144d32e76_c60035319ca345788f66a772df8c09f7_6ab203eb741c449bbfcd6c636d7147ed_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_ae17713a66ce47ad861bb83144d32e76_c60035319ca345788f66a772df8c09f7_6ab203eb741c449bbfcd6c636d7147ed_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Right-click the file tab and select <strong>Open Preview</strong> to view the report with full Markdown formatting applied.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_5333eb58cd2242f1a8ac653206b9d2e1_78e3ca383d4c437c98285c1f2b037a50_08c25b1275704d6882b52778b39af42d_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_5333eb58cd2242f1a8ac653206b9d2e1_78e3ca383d4c437c98285c1f2b037a50_08c25b1275704d6882b52778b39af42d_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Review <code>SECURITY_AUDIT_REPORT.md</code>. Bob has produced a professional audit document covering every vulnerability found, its severity, and the recommended remediation.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_fb7f5d85857e4ccabd8a767144798a9b_58be14d0cccc4430b12f4e36b9686ba9_1f8c09c066cf4a44806e76c6aae3cce6_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_fb7f5d85857e4ccabd8a767144798a9b_58be14d0cccc4430b12f4e36b9686ba9_1f8c09c066cf4a44806e76c6aae3cce6_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="produce-the-deep-dive"><strong>Produce the deep dive</strong></h3>
+<ol start="6">
+<li>
+<p>Paste the following prompt and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to have Bob produce a detailed treatment of the five most critical vulnerabilities:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>For the top 5 most critical vulnerabilities found, create detailed documentation that includes:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a> 1. **SQL Injection in data_pipeline.py**
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    - Show the vulnerable code
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    - Explain why it's vulnerable
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    - Demonstrate a potential exploit
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    - Show the secure fix using parameterized queries
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a> 2. **Command Injection vulnerabilities**
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    - Identify all instances of shell=True
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    - Explain the risks
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    - Provide secure alternatives using subprocess with lists
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a> 3. **Insecure Deserialization (pickle)**
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    - Explain the remote code execution risk
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    - Show how an attacker could exploit this
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    - Recommend safe alternatives (JSON, safe serialization)
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a> 4. **Hardcoded Secrets**
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    - List all hardcoded credentials and secrets
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    - Explain the risks of exposure
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>    - Show how to use environment variables or secret managers
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a> 5. **Cryptographic Weaknesses**
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    - Identify weak hashing (MD5) and insecure randomness
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>    - Explain why these are insufficient for security
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>    - Provide modern, secure alternatives
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_f08e8549003848dca3e147435c245e7a_1a4a3536fcb24ccb848fc2fe11fdd284_53f924b5b5854a10a06327918139badf_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_f08e8549003848dca3e147435c245e7a_1a4a3536fcb24ccb848fc2fe11fdd284_53f924b5b5854a10a06327918139badf_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob starts on the deep-dive documentation, reading the relevant source files and producing detailed exploit scenarios and remediation guidance.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_9f389610571f4d9b99d2240c2a6a0e07_5b56b87521c648108b825c2e1c1dc4b4_0510b0b1faac48a98f52cc387324c885_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_9f389610571f4d9b99d2240c2a6a0e07_5b56b87521c648108b825c2e1c1dc4b4_0510b0b1faac48a98f52cc387324c885_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob is typically able to complete this in a single pass. When it finishes, <code>VULNERABILITY_DEEP_DIVE.md</code> appears in the project explorer.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_c3f2fedc87ea4592981ae8715f4a17b9_5f65dc0974b340debfa8bffe8b473bbe_a83167b2edb349b59ae2f1f94675dc0c_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_c3f2fedc87ea4592981ae8715f4a17b9_5f65dc0974b340debfa8bffe8b473bbe_a83167b2edb349b59ae2f1f94675dc0c_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Right-click <code>VULNERABILITY_DEEP_DIVE.md</code> and select <strong>Open Preview</strong> to review the formatted document.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_0079e56f23ee41659d5d37973a32dc50_a3744be6ac56493fb01da59fe2fff2c3_2d9cb88dc0224c0281f6420729c8f4ee_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_0079e56f23ee41659d5d37973a32dc50_a3744be6ac56493fb01da59fe2fff2c3_2d9cb88dc0224c0281f6420729c8f4ee_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Review the deep dive. Bob has identified real security flaws in the codebase, each with a concrete exploit demonstration and a secure-code fix.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_fca2616e9b9f41dea8043d1d19299f65_9a834f0e73d749d182ca4a0bedcefbd2_05b16c4e7c2e43b3851ae3850b707721_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_fca2616e9b9f41dea8043d1d19299f65_9a834f0e73d749d182ca4a0bedcefbd2_05b16c4e7c2e43b3851ae3850b707721_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Continue scrolling through the document to read all five vulnerability sections and their recommended fixes.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_26cdfdf9033947938236b97f2c72ff1e_7d87e0828a6b45fbbf0eb8be5284d16b_5a1d499a86d846fa9694fcdf291bb754_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_26cdfdf9033947938236b97f2c72ff1e_7d87e0828a6b45fbbf0eb8be5284d16b_5a1d499a86d846fa9694fcdf291bb754_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h2 id="v-remediating-and-verifying"><strong>v. REMEDIATING AND VERIFYING</strong></h2>
+<p>With the findings documented, Bob applies the fixes and then reviews its own work. Each fixed file waits for your approval before it is written.</p>
+<hr>
+<h3 id="apply-the-fixes"><strong>Apply the fixes</strong></h3>
+<ol>
+<li>
+<p>Paste the following prompt and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to have Bob apply the security fixes to the codebase:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Fix all security vulnerabilities in the codebase. For each fix:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>- Apply the secure coding pattern
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>- Add comments explaining the security improvement
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>- Ensure the fix doesn't break existing functionality
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>- Follow Python security best practices
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Specifically:
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>- Replace string formatting in SQL with parameterized queries
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>- Replace shell=True with subprocess using argument lists
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>- Remove or externalize hardcoded credentials
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>- Replace pickle with JSON for serialization
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>- Enable SSL verification in requests
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>- Fix file permissions to restrictive values (0o600)
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>- Replace MD5 with SHA-256 or bcrypt for password hashing
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>- Use secrets module instead of random for tokens
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>- Remove eval/exec or implement strict sandboxing
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>- Use secure JWT configuration with external secrets
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>Create the fixed versions of:
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>- data_pipeline_secure.py
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_4665b42c88a5420d978d23af6c502aa5_218e380f90574e36a171488d10645059_411c4adb8292423dafa2bc5c562edde3_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_4665b42c88a5420d978d23af6c502aa5_218e380f90574e36a171488d10645059_411c4adb8292423dafa2bc5c562edde3_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob starts applying the fixes. Because it already read the relevant files in the previous prompts, it proceeds directly to the remediation without re-reading the code.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_7d0b9143bd88420b93db53a56624b60f_db6c718ebef44abfaf43531e762b4204_30a241f61bd546548431231cc8d9ef8f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_7d0b9143bd88420b93db53a56624b60f_db6c718ebef44abfaf43531e762b4204_30a241f61bd546548431231cc8d9ef8f_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Click <strong>Approve for task</strong> to allow Bob to write the first fixed file.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_29f80013a488459e816a08b630e4d6fa_34dcc2a830c84ca2b7f2d0c15b59c75a_412fc8701d98408ba97c1121180269d9_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_29f80013a488459e816a08b630e4d6fa_34dcc2a830c84ca2b7f2d0c15b59c75a_412fc8701d98408ba97c1121180269d9_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Click <strong>Approve for task</strong> to allow Bob to write the next fixed file.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_449a05bde4d447528f5c2a283bc70ae8_a286ab0c63d849e6b9118e195e69dbca_beda1526f2234285b3416197ab1c8eee_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_449a05bde4d447528f5c2a283bc70ae8_a286ab0c63d849e6b9118e195e69dbca_beda1526f2234285b3416197ab1c8eee_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Click <strong>Approve for task</strong> to allow Bob to write the final fixed file.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_3d6ce4be60d0454e862c7a1fe6ba54ed_407e9441be22400bbd72e441fa46283c_f3be7bb9f9224c9f847a888b8cc3ebb5_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_3d6ce4be60d0454e862c7a1fe6ba54ed_407e9441be22400bbd72e441fa46283c_f3be7bb9f9224c9f847a888b8cc3ebb5_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob finishes applying the fixes. Review the completion message in the Agentic Sidebar to see what changed in each file.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_4ee669c54e4b41fcadc6edf92c7984d6_d09715cff3244e69a2c02690eca25be4_1f19a2e0b7d24952bb62c061fa53ef69_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_4ee669c54e4b41fcadc6edf92c7984d6_d09715cff3244e69a2c02690eca25be4_1f19a2e0b7d24952bb62c061fa53ef69_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="verify-the-remediation"><strong>Verify the remediation</strong></h3>
+<ol start="7">
+<li>
+<p>Paste the following prompt and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to have Bob verify the fixes and produce a final remediation verification report:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Review the fixed code files and verify that:
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>- All identified vulnerabilities have been addressed
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>- No new security issues have been introduced
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>- The code still functions correctly
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>- Security best practices are followed
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Generate a REMEDIATION_VERIFICATION.md document that includes:
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>- Checklist of all vulnerabilities and their fix status
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>- Any remaining concerns or recommendations
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>- Suggestions for additional security hardening
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>- Recommendations for security testing (SAST, DAST, penetration testing)
+</code></pre></div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_8c3d7a524b304f7eb6def48b3522582f_b5ee3658f1664900b99a515aecdf4976_dfcaaecd28884f70acbc3e75e6188f5a_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_8c3d7a524b304f7eb6def48b3522582f_b5ee3658f1664900b99a515aecdf4976_dfcaaecd28884f70acbc3e75e6188f5a_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob starts reviewing the fixed files. Click <strong>Approve for task</strong> when the approval dialog appears.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_81ac48ca712d43d2afec7fae2c6a28e9_a9c76adc366042e8a62b479e99e86da9_106449a8933c4568a0eaaff18851c281_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_81ac48ca712d43d2afec7fae2c6a28e9_a9c76adc366042e8a62b479e99e86da9_106449a8933c4568a0eaaff18851c281_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Click <strong>Approve for task</strong> to allow Bob to proceed with reading and verifying the fixed files.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_02dd3b535afb4bcfbc10b2c5d19b334c_22efc4223d88444881ffd3def662d225_0616512927cb4189b9b0bdf4a31327ba_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_02dd3b535afb4bcfbc10b2c5d19b334c_22efc4223d88444881ffd3def662d225_0616512927cb4189b9b0bdf4a31327ba_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Click <strong>Approve for task</strong> to allow Bob to write the verification report.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_6d283cc5079b4683a0bed90cf7155d7f_079c6fca25a847e0ab1c76ff5523dac3_3b49fe81fbbc4db9b88340fb6f2e44b6_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_6d283cc5079b4683a0bed90cf7155d7f_079c6fca25a847e0ab1c76ff5523dac3_3b49fe81fbbc4db9b88340fb6f2e44b6_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob confirms that <code>REMEDIATION_VERIFICATION.md</code> has been written to the project directory. Open it to review.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_51e0028d698b4b8687c8bb1fe9f464d3_17be9fb45b024e59b431fc1e3ca1d777_705b7f745f4f43c5bf1a60a0ec312f21_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_51e0028d698b4b8687c8bb1fe9f464d3_17be9fb45b024e59b431fc1e3ca1d777_705b7f745f4f43c5bf1a60a0ec312f21_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Right-click the file tab and select <strong>Open Preview</strong> to read the verification report in formatted Markdown.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_bb9bde76414d428facfc16264cd3aaef_53e42e4ec9fb490e9df7ec1805aba62c_4ff03710af1844d5b12642cbc31adc9e_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_bb9bde76414d428facfc16264cd3aaef_53e42e4ec9fb490e9df7ec1805aba62c_4ff03710af1844d5b12642cbc31adc9e_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h2 id="vi-confirming-the-application-still-works"><strong>vi. CONFIRMING THE APPLICATION STILL WORKS</strong></h2>
+<p>A remediation that breaks the application is a defect of its own. As a final sanity check, restart the teller portal and confirm that it still runs against the patched backend code.</p>
+<hr>
+<h3 id="restart-the-application"><strong>Restart the application</strong></h3>
+<ol>
+<li>
+<p>If you have lost track of the startup commands after so many prompts, ask Bob in natural language — for example, <em>"How do I start the frontend?"</em> or <em>"What commands do I run to start the GFM teller app?"</em></p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_072ee6fd79ad4a4b810283a05567eef9_0e4b1001236044f4b42baadf125108d6_64ccc2eeebe142a78145102f96fb6c74_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_072ee6fd79ad4a4b810283a05567eef9_0e4b1001236044f4b42baadf125108d6_64ccc2eeebe142a78145102f96fb6c74_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Bob understands the question and provides the exact terminal commands needed to start the application again.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_d6163b67e79442639647c2a596287eb7_7aeabe1ef48e45adb627b76189bb6511_e810a525e3284aa085e1ff633ca4a546_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_d6163b67e79442639647c2a596287eb7_7aeabe1ef48e45adb627b76189bb6511_e810a525e3284aa085e1ff633ca4a546_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Run the startup commands in the terminal to restart the application and confirm that it works correctly after the security fixes.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_30c62753cbeb4b93bb7331001bee0584_c94692d3b6a7438ca3133b7c41de58cd_5c2de9ec87324c08a11ed3c570f49d6f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_30c62753cbeb4b93bb7331001bee0584_c94692d3b6a7438ca3133b7c41de58cd_5c2de9ec87324c08a11ed3c570f49d6f_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Sign in again and reach the dashboard. As expected, the application still works.</p>
+<div class="admonition note">
+<p class="admonition-title">WHAT YOU HAVE COMPLETED</p>
+<p>At this point you have completed all three modules of the lab. Because Bob is powered by generative AI, your banking application may look different from the screenshots, and the exact issues you encountered may have varied. What matters is that you have worked the full cycle: codebase analysis in Module 1, a Carbon-based React front-end in Module 2, and vulnerability detection and remediation in Module 3.</p>
+</div>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_d51e6445c1b54d2c950ce58b23533d31_3f1374c2db6342eda4780fa176f2188b_d7b6ced75c904ed98f687167fa578602_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_d51e6445c1b54d2c950ce58b23533d31_3f1374c2db6342eda4780fa176f2188b_d7b6ced75c904ed98f687167fa578602_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h3 id="optional-apply-the-remaining-polish"><strong>Optional: apply the remaining polish</strong></h3>
+<p>For client engagements, or simply for a clean demonstration, the remaining zero-balance counters on the dashboard can be resolved with the same loop used throughout <strong>Module 2</strong>.</p>
+<hr>
+<ol start="5">
+<li>
+<p>Take a screenshot of the dashboard and send it to Bob with a plain-language description of the problem.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_de4c57b0edd543e1b20281f9c5d7fdb0_41ca9b47a31f4bed9162d19786a7cdef_fe1f88a1953a4a229add91916b4d2b8e_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_de4c57b0edd543e1b20281f9c5d7fdb0_41ca9b47a31f4bed9162d19786a7cdef_fe1f88a1953a4a229add91916b4d2b8e_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Work through the approval flow in the Agentic Sidebar as usual. Bob investigates the cause, applies the fix, and confirms when it is complete.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_00e86f35d44a43adae38f15bfb1e899e_0541625aa13b4402859efc30aacc9108_e66d11ab3979462b85605f745c8d80ce_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_00e86f35d44a43adae38f15bfb1e899e_0541625aa13b4402859efc30aacc9108_e66d11ab3979462b85605f745c8d80ce_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Depending on what Bob changed, you may or may not need to restart the development server. If prompted, run <code>npm start</code> in the terminal following the same process used throughout the lab.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_f689fa3c85d64cfb9309e2c48ef995ad_4d1efe47e41f4468a3cb027c0e674421_e5893f2da6c04ee2b78428ec6688957f_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_f689fa3c85d64cfb9309e2c48ef995ad_4d1efe47e41f4468a3cb027c0e674421_e5893f2da6c04ee2b78428ec6688957f_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+<li>
+<p>Reload the browser and confirm the fix. If the issue is not fully resolved on the first attempt, continue iterating as you have done throughout this lab: take a screenshot and describe the problem, then let Bob work on it.</p>
+<p></p><p align="left">
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_79dfbda3e0b344b987b5a7594fa20d35_6df2730c3ad34030b0d888daae889e35_4bae3c8428a047b094d1508eec401ba4_text_export.jpeg" data-desc-position="bottom"><img src="https://colony-recorder.s3.us-west-1.amazonaws.com/files/org_c5a86d7505634b408ffed7c02e1a91dc/team_1e16acc894ad4e0eba6e176fd42bdcc1/document_7fca17f3d66f4a178c7083fb94a5c008/steps/step_79dfbda3e0b344b987b5a7594fa20d35_6df2730c3ad34030b0d888daae889e35_4bae3c8428a047b094d1508eec401ba4_text_export.jpeg" alt="" width="600"></a>
+</p>
+</li>
+</ol>
+<hr>
+<h2 id="vii-wrapping-up"><strong>vii. WRAPPING UP</strong></h2>
+<p>Before concluding, dwell a moment longer on your results and findings across Module 3:</p>
+<div class="admonition quote">
+<ul>
+<li>A fresh chat session keeps the security analysis focused; context from earlier modules is left behind deliberately.</li>
+<li>Classifying findings against the <code>OWASP Top 10</code> and <code>CWE</code>, and ranking them by severity, turns a scan into something a review board can act upon.</li>
+<li>The three documents — the audit report, the deep dive, and the remediation verification — are the record of the work. Each is a file in the workspace rather than a conversation that scrolls away.</li>
+<li>Bob applies fixes and then verifies its own work, but each written file passes through your approval and the verification report is yours to judge.</li>
+<li>Long generations can stall; the prompt <code>continue</code> resumes them.</li>
+<li>A remediation is complete only once the application has been restarted and proven to work, and the iteration loop remains available for whatever polish a demonstration needs.</li>
+</ul>
+</div>
+<p>Congratulations on reaching the end of the hands-on work and exercises. Across the three modules, Bob has taken GFM Bank from an unfamiliar codebase to a documented, extended, and hardened system.</p>
+<ul>
+<li><strong>Module 1</strong> produced the written understanding: an architecture reference, a data-pipeline analysis, a functional requirements document, and a catalogue of the invariants the system must never violate.</li>
+<li><strong>Module 2</strong> turned that understanding into a working Carbon teller portal generated from a single specification. It was then repaired through screenshots and plain-language prompts until it returned the same balance the original Python client did.</li>
+<li><strong>Module 3</strong> closed the loop with a vulnerability scan classified against the <code>OWASP Top 10</code> and <code>CWE</code>. That scan became an audit report and a deep dive on the five most critical findings, followed by remediations and a verification report that confirmed the fixes held.</li>
+</ul>
+<p>At every one of those stages, you reviewed and approved before anything was trusted. That pairing is the discipline of the <strong>AI Maturity Curve</strong> exercised on a system that handles money, and it is the story to bring to your next conversation with a client in a regulated industry.</p>
+<hr>
+<h2 id="viii-earn-accreditation"><strong>viii. EARN ACCREDITATION</strong></h2>
+<p>In order to receive credit for completion of this course, you must perform one of the two actions (in accordance with your role) described below:</p>
+<div class="admonition note">
+<p class="admonition-title">IBMers: RECORD A STAND &amp; DELIVER</p>
+<p><strong>IBM regular employees</strong> must record a Stand &amp; Deliver to receive credit for this course. By default, IBMers will be evaluated by their First Line Manager (FLM) — although they may request another manager to evaluate their Stand &amp; Deliver, if appropriate. Instructions on how to submit a Stand &amp; Deliver are included within the activity on <strong>IBM YourLearning</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Business Partners: COMPLETE THE SKILLS EVALUATION QUIZ</p>
+<p>The skills evaluation quiz <strong>only applies to business partners</strong>. The quiz consists of multiple choice questions, with four possible responses (and only one correct answer) for each question. The quiz questions will ask you about on-screen text or descriptions that come up as you work through the lab guide. Participants must pass the quiz with a grade of 80% or higher. Answers to the quiz can only be determined by carefully following the instructions of the hands-on lab. A link is provided within the course page on <strong>IBM Training</strong>.</p>
+</div>
+<hr></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../2-2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Running, Debugging, and Iterating">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Running, Debugging, and Iterating
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 IBM
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.annotate", "content.code.copy", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+        <script src="../_static/hide-toc-nav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

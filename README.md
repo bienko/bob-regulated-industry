@@ -1,2 +1,2 @@
 # bob-regulated-industry
-Regulated Industry with IBM Bob
+Regulated Industry with IBM Bob Level 3
